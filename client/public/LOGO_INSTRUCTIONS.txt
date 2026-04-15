@@ -1,0 +1,20 @@
+HOW TO ADD YOUR LOGO (neon and white-06.png)
+=============================================
+
+1. Download your logo from Google Drive:
+   https://drive.google.com/file/d/1_UGBHwAXEPI9AIuotwXFNmGf6ghhPObk/view
+
+2. Rename the file to:  logo.png
+
+3. Place it in this folder:  client/public/logo.png
+
+4. Open:  client/src/components/layout/Navbar.jsx
+
+5. Change line:  const LOGO_EXISTS = false
+         to:  const LOGO_EXISTS = true
+
+That's it! Your logo will appear in the Navbar and Footer
+with an automatic neon green drop-shadow glow.
+
+RECOMMENDED: Also place a copy at client/public/logo-white.png
+(a white/light version) for use in the Footer.
