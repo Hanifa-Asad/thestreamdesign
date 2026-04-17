@@ -8,11 +8,11 @@ export default {
     extend: {
       colors: {
         neon: {
-          green: '#2cff05',
-          'green-dim': '#1db803',
-          'green-glow': 'rgba(44, 255, 5, 0.15)',
-          'green-glow-md': 'rgba(44, 255, 5, 0.30)',
-          'green-glow-lg': 'rgba(44, 255, 5, 0.50)',
+          green: '#00cc00',
+          'green-dim': '#0a8a00',
+          'green-glow': 'rgba(0, 204, 0, 0.15)',
+          'green-glow-md': 'rgba(0, 204, 0, 0.30)',
+          'green-glow-lg': 'rgba(0, 204, 0, 0.50)',
         },
         dark: {
           DEFAULT: '#000000',
@@ -36,20 +36,20 @@ export default {
         mono:    ['"Share Tech Mono"', 'monospace'],
       },
       boxShadow: {
-        'neon': '0 0 10px rgba(44, 255, 5, 0.5), 0 0 30px rgba(44, 255, 5, 0.2)',
-        'neon-md': '0 0 20px rgba(44, 255, 5, 0.6), 0 0 60px rgba(44, 255, 5, 0.25)',
-        'neon-lg': '0 0 30px rgba(44, 255, 5, 0.8), 0 0 80px rgba(44, 255, 5, 0.35)',
-        'neon-inset': 'inset 0 0 20px rgba(44, 255, 5, 0.1)',
+        'neon': '0 0 10px rgba(0, 204, 0, 0.5), 0 0 30px rgba(0, 204, 0, 0.2)',
+        'neon-md': '0 0 20px rgba(0, 204, 0, 0.6), 0 0 60px rgba(0, 204, 0, 0.25)',
+        'neon-lg': '0 0 30px rgba(0, 204, 0, 0.8), 0 0 80px rgba(0, 204, 0, 0.35)',
+        'neon-inset': 'inset 0 0 20px rgba(0, 204, 0, 0.1)',
         'card': '0 4px 24px rgba(0, 0, 0, 0.4)',
-        'card-hover': '0 8px 40px rgba(44, 255, 5, 0.15)',
+        'card-hover': '0 8px 40px rgba(0, 204, 0, 0.15)',
       },
       backgroundImage: {
-        'grid-pattern': `linear-gradient(rgba(44, 255, 5, 0.03) 1px, transparent 1px), 
-                          linear-gradient(90deg, rgba(44, 255, 5, 0.03) 1px, transparent 1px)`,
-        'hero-radial': 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(44, 255, 5, 0.12) 0%, transparent 70%)',
-        'neon-gradient': 'linear-gradient(135deg, #2cff05 0%, #1db803 100%)',
+        'grid-pattern': `linear-gradient(rgba(0, 204, 0, 0.03) 1px, transparent 1px), 
+                          linear-gradient(90deg, rgba(0, 204, 0, 0.03) 1px, transparent 1px)`,
+        'hero-radial': 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 204, 0, 0.12) 0%, transparent 70%)',
+        'neon-gradient': 'linear-gradient(135deg, #00cc00 0%, #0a8a00 100%)',
         'dark-gradient': 'linear-gradient(180deg, #0a0a0a 0%, #000000 100%)',
-        'card-gradient': 'linear-gradient(135deg, rgba(44, 255, 5, 0.08) 0%, rgba(44, 255, 5, 0.02) 100%)',
+        'card-gradient': 'linear-gradient(135deg, rgba(0, 204, 0, 0.08) 0%, rgba(0, 204, 0, 0.02) 100%)',
       },
       backgroundSize: {
         'grid': '40px 40px',

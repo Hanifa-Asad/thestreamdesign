@@ -7,7 +7,7 @@ import GlowButton from '@components/ui/GlowButton'
 export default function NotFound() {
   return (
     <>
-      <Helmet><title>404 — Page Not Found | TheStreamDesign</title></Helmet>
+      <Helmet><title>404 — Page Not Found | thestreamingdesign</title></Helmet>
       <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-grid bg-[length:40px_40px] pointer-events-none" />
         <div className="text-center relative z-10 px-4">

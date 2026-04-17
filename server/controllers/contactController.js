@@ -31,13 +31,13 @@ export const submitContact = async (req, res) => {
 
       // Notification to agency
       await transporter.sendMail({
-        from: `"TheStreamDesign Bot" <${process.env.GMAIL_USER}>`,
+        from: `"thestreamingdesign Bot" <${process.env.GMAIL_USER}>`,
         to: process.env.MAIL_TO,
         subject: `🎮 New Contact: ${service} — ${name}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <div style="background: #000; padding: 20px; border-left: 4px solid #2cff05;">
-              <h2 style="color: #2cff05; margin: 0;">New Project Inquiry</h2>
+            <div style="background: #000; padding: 20px; border-left: 4px solid #00cc00;">
+              <h2 style="color: #00cc00; margin: 0;">New Project Inquiry</h2>
             </div>
             <div style="background: #111; padding: 24px; color: #fff;">
               <table style="width: 100%; border-collapse: collapse;">
@@ -47,7 +47,7 @@ export const submitContact = async (req, res) => {
                 </tr>
                 <tr>
                   <td style="color: #888; padding: 8px 0;">Email</td>
-                  <td style="color: #2cff05; padding: 8px 0;">${email}</td>
+                  <td style="color: #00cc00; padding: 8px 0;">${email}</td>
                 </tr>
                 <tr>
                   <td style="color: #888; padding: 8px 0;">Service</td>
@@ -65,20 +65,20 @@ export const submitContact = async (req, res) => {
 
       // Auto-reply to client
       await transporter.sendMail({
-        from: `"TheStreamDesign" <${process.env.GMAIL_USER}>`,
+        from: `"thestreamingdesign" <${process.env.GMAIL_USER}>`,
         to: email,
-        subject: `✅ We received your inquiry — TheStreamDesign`,
+        subject: `✅ We received your inquiry — thestreamingdesign`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <div style="background: #000; padding: 20px; border-left: 4px solid #2cff05;">
-              <h2 style="color: #2cff05; margin: 0;">TheStreamDesign</h2>
+            <div style="background: #000; padding: 20px; border-left: 4px solid #00cc00;">
+              <h2 style="color: #00cc00; margin: 0;">thestreamingdesign</h2>
               <p style="color: #888; margin: 4px 0 0; font-size: 14px;">Level Up Your Brand</p>
             </div>
             <div style="background: #111; padding: 24px; color: #fff;">
               <p>Hey <strong>${name}</strong>,</p>
-              <p>Thanks for reaching out! We've received your inquiry about <strong style="color: #2cff05;">${service}</strong> and will get back to you within <strong>24–48 hours</strong>.</p>
-              <p style="color: #888;">In the meantime, check out our portfolio and pricing at <a href="${process.env.CLIENT_URL}" style="color: #2cff05;">thestreamdesign.com</a></p>
-              <p>Talk soon,<br><strong>The TheStreamDesign Team</strong></p>
+              <p>Thanks for reaching out! We've received your inquiry about <strong style="color: #00cc00;">${service}</strong> and will get back to you within <strong>24–48 hours</strong>.</p>
+              <p style="color: #888;">In the meantime, check out our portfolio and pricing at <a href="${process.env.CLIENT_URL}" style="color: #00cc00;">thestreamingdesign.com</a></p>
+              <p>Talk soon,<br><strong>The thestreamingdesign Team</strong></p>
             </div>
           </div>
         `,

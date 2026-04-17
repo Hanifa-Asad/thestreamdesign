@@ -83,7 +83,7 @@ export default function HeroSection() {
               <span
                 className="block"
                 style={{
-                  color: '#2cff05',
+                  color: '#00cc00',
                   textShadow: '0 0 30px rgba(44,255,5,0.65), 0 0 80px rgba(44,255,5,0.22)',
                   animation: 'textGlow 2.2s ease-in-out infinite alternate',
                 }}
@@ -160,7 +160,7 @@ export default function HeroSection() {
                   style={{ background: 'linear-gradient(90deg,transparent,rgba(44,255,5,0.6),transparent)' }} />
                 <div
                   className="font-display font-black text-xl sm:text-2xl mb-0.5"
-                  style={{ color: '#2cff05', textShadow: '0 0 10px rgba(44,255,5,0.4)' }}
+                  style={{ color: '#00cc00', textShadow: '0 0 10px rgba(44,255,5,0.4)' }}
                 >
                   {value}
                 </div>

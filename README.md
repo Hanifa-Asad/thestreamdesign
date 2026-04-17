@@ -1,4 +1,4 @@
-# TheStreamDesign 🎮
+# thestreamingdesign 🎮
 
 Premium gaming & digital services agency website — MERN Stack.
 
@@ -18,8 +18,8 @@ Premium gaming & digital services agency website — MERN Stack.
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/yourname/thestreamdesign.git
-cd thestreamdesign
+git clone https://github.com/yourname/thestreamingdesign.git
+cd thestreamingdesign
 npm run install-all
 ```
 
@@ -50,7 +50,7 @@ npm run dev
 ## Project Structure
 
 ```
-thestreamdesign/
+thestreamingdesign/
 ├── client/                    # React frontend
 │   ├── src/
 │   │   ├── pages/             # Home, About, Services, Pricing, Portfolio, Contact
@@ -94,4 +94,3 @@ cd client && npm run build
 **Gamers & Streamers:** Logo Design, Stream Banners, Stream Overlays, Twitch Emotes
 
 **YouTubers:** Logo & Banner, Thumbnail Design, Reels Thumbnails, Video Editing, Reels Editing, YouTube Management, Channel Management
-"# thestreamdesign" 

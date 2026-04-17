@@ -15,7 +15,7 @@ export default function GlowButton({
 
   // Solid
   const solidStyle = {
-    background: '#2cff05', color: '#000',
+    background: '#00cc00', color: '#000',
     clipPath: 'polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)',
     boxShadow: '0 0 16px rgba(44,255,5,0.5)',
   }
@@ -27,7 +27,7 @@ export default function GlowButton({
 
   // Outline
   const outlineStyle = {
-    background: 'transparent', color: '#2cff05',
+    background: 'transparent', color: '#00cc00',
     border: '1px solid rgba(44,255,5,0.65)',
     clipPath: 'polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)',
     boxShadow: '0 0 8px rgba(44,255,5,0.12)',

@@ -1,19 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Layout from '@components/layout/Layout'
-
-// Pages — lazy loaded for performance
 import { lazy, Suspense } from 'react'
-const Home        = lazy(() => import('@pages/Home'))
-const About       = lazy(() => import('@pages/About'))
-const Services    = lazy(() => import('@pages/Services'))
-const ServiceDetail = lazy(() => import('@pages/ServiceDetail'))
-const Pricing     = lazy(() => import('@pages/Pricing'))
-const Portfolio   = lazy(() => import('@pages/Portfolio'))
-const Contact     = lazy(() => import('@pages/Contact'))
-const NotFound    = lazy(() => import('@pages/NotFound'))
 
-// Loading spinner
+const Home          = lazy(() => import('@pages/Home'))
+const About         = lazy(() => import('@pages/About'))
+const Services      = lazy(() => import('@pages/Services'))
+const ServiceDetail = lazy(() => import('@pages/ServiceDetail'))
+const Pricing       = lazy(() => import('@pages/Pricing'))
+const Portfolio     = lazy(() => import('@pages/Portfolio'))
+const Contact       = lazy(() => import('@pages/Contact'))
+const Blog          = lazy(() => import('@pages/Blog'))
+const BlogPost      = lazy(() => import('@pages/BlogPost'))
+const NotFound      = lazy(() => import('@pages/NotFound'))
+
 const PageLoader = () => (
   <div className="min-h-screen bg-dark-100 flex items-center justify-center">
     <div className="relative w-16 h-16">
@@ -30,14 +30,16 @@ export default function App() {
         <AnimatePresence mode="wait">
           <Routes>
             <Route element={<Layout />}>
-              <Route path="/"                   element={<Home />} />
-              <Route path="/about"              element={<About />} />
-              <Route path="/services"           element={<Services />} />
-              <Route path="/services/:slug"     element={<ServiceDetail />} />
-              <Route path="/pricing"            element={<Pricing />} />
-              <Route path="/portfolio"          element={<Portfolio />} />
-              <Route path="/contact"            element={<Contact />} />
-              <Route path="*"                   element={<NotFound />} />
+              <Route path="/"               element={<Home />} />
+              <Route path="/about"          element={<About />} />
+              <Route path="/services"       element={<Services />} />
+              <Route path="/services/:slug" element={<ServiceDetail />} />
+              <Route path="/pricing"        element={<Pricing />} />
+              <Route path="/portfolio"      element={<Portfolio />} />
+              <Route path="/contact"        element={<Contact />} />
+              <Route path="/blog"           element={<Blog />} />
+              <Route path="/blog/:slug"     element={<BlogPost />} />
+              <Route path="*"              element={<NotFound />} />
             </Route>
           </Routes>
         </AnimatePresence>

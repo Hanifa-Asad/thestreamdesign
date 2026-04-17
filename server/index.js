@@ -32,7 +32,7 @@ app.use('/api/contact', contactRoutes)
 app.get('/api/health', (req, res) => {
   res.json({
     success: true,
-    message: 'TheStreamDesign API is running',
+    message: 'thestreamingdesign API is running',
     env: process.env.NODE_ENV,
     timestamp: new Date().toISOString(),
   })

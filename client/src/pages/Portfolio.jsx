@@ -56,7 +56,7 @@ export default function Portfolio() {
   return (
     <>
       <Helmet>
-        <title>Portfolio | TheStreamDesign</title>
+        <title>Portfolio | thestreamingdesign</title>
         <meta name="description" content="Browse our portfolio of gaming logos, stream overlays, Twitch emotes, YouTube thumbnails and more." />
       </Helmet>
 

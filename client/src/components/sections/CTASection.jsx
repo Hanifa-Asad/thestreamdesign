@@ -37,7 +37,7 @@ export default function CTASection() {
           </h2>
 
           <p className="font-body text-white/50 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-            Join 200+ creators who trust TheStreamDesign to power their brand.
+            Join 200+ creators who trust thestreamingdesign to power their brand.
             Tell us what you need — we handle the rest.
           </p>
 

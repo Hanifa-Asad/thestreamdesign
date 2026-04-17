@@ -10,7 +10,7 @@ const TESTIMONIALS = [
     avatar: 'SS',
     color: 'bg-purple-500',
     rating: 5,
-    text: 'TheStreamDesign completely transformed my channel. The overlay pack they built for me is absolutely insane — my viewers keep asking where I got it. 10/10 would recommend to every streamer.',
+    text: 'thestreamingdesign completely transformed my channel. The overlay pack they built for me is absolutely insane — my viewers keep asking where I got it. 10/10 would recommend to every streamer.',
     service: 'Stream Overlay Package',
   },
   {
@@ -60,7 +60,7 @@ const TESTIMONIALS = [
     avatar: 'TA',
     color: 'bg-green-600',
     rating: 5,
-    text: 'I have worked with multiple design agencies. TheStreamDesign is the only one that truly gets gaming culture. The emotes my community uses daily came from these guys.',
+    text: 'I have worked with multiple design agencies. thestreamingdesign is the only one that truly gets gaming culture. The emotes my community uses daily came from these guys.',
     service: 'Twitch Emotes Pack',
   },
 ]
@@ -75,7 +75,7 @@ export default function TestimonialsSection() {
           label="Client Reviews"
           title="What Creators"
           titleHighlight="Say"
-          subtitle="Real feedback from real streamers and YouTubers who leveled up with TheStreamDesign."
+          subtitle="Real feedback from real streamers and YouTubers who leveled up with thestreamingdesign."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

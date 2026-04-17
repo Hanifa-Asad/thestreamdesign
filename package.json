@@ -1,7 +1,7 @@
 {
-  "name": "thestreamdesign",
+  "name": "thestreamingdesign",
   "version": "1.0.0",
-  "description": "TheStreamDesign - Premium Gaming & Digital Services Agency",
+  "description": "thestreamingdesign - Premium Gaming & Digital Services Agency",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "client": "cd client && npm run dev",

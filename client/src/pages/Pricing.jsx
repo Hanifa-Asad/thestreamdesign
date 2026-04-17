@@ -90,7 +90,7 @@ export default function Pricing() {
   return (
     <>
       <Helmet>
-        <title>Pricing | TheStreamDesign</title>
+        <title>Pricing | thestreamingdesign</title>
         <meta name="description" content="Transparent pricing for all gaming design services. Basic, Standard, and Premium plans for stream overlays, logos, thumbnails and more." />
       </Helmet>
 

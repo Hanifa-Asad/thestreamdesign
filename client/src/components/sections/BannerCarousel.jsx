@@ -11,7 +11,7 @@ const SLIDES = [
     headline: ['Level Up', 'Your Stream'],
     sub: 'Fully animated OBS-ready overlay packs that keep viewers hooked.',
     cta: { label: 'View Overlays', to: '/services/stream-overlays' },
-    accent: '#2cff05',
+    accent: '#00cc00',
     glow: 'rgba(44,255,5,',
     bg: '#000d00',
     gradFrom: 'rgba(44,255,5,0.22)',
@@ -71,7 +71,7 @@ const SLIDES = [
   },
 ]
 
-const AUTO_MS = 4800
+const AUTO_MS = 2500   // ← was 4800ms — now snappy 2.5s autoplay
 
 export default function BannerCarousel() {
   const [cur,    setCur]    = useState(0)
@@ -116,7 +116,7 @@ export default function BannerCarousel() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.35 }}
           style={{ background: slide.bg }}
         >
           {/* Grid */}
@@ -153,14 +153,14 @@ export default function BannerCarousel() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-xl"
             >
               {/* Tag badge */}
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.12 }}
+                transition={{ delay: 0.06 }}
                 className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full"
                 style={{
                   border: `1px solid ${slide.accent}40`,
@@ -174,7 +174,7 @@ export default function BannerCarousel() {
               </motion.div>
 
               {/* Headline */}
-              <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.19 }}>
+              <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.10 }}>
                 <h2 className="font-display font-black leading-[0.95] tracking-tight"
                     style={{ fontSize: 'clamp(1.9rem, 4.2vw, 3.8rem)' }}>
                   <span className="block text-white">{slide.headline[0]}</span>
@@ -191,7 +191,7 @@ export default function BannerCarousel() {
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.27 }}
+                transition={{ delay: 0.15 }}
                 className="font-body text-white/50 mt-3 mb-6 leading-relaxed"
                 style={{ fontSize: 'clamp(0.82rem, 1.4vw, 1rem)', maxWidth: '38ch' }}
               >
@@ -199,13 +199,13 @@ export default function BannerCarousel() {
               </motion.p>
 
               {/* CTA button */}
-              <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.34 }}>
+              <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.20 }}>
                 <Link
                   to={slide.cta.to}
                   className="inline-flex items-center gap-2.5 font-display font-black text-xs tracking-[0.18em] uppercase px-6 py-3 transition-all duration-300 group"
                   style={{
                     background: slide.accent,
-                    color: slide.accent === '#2cff05' ? '#000' : '#000',
+                    color: slide.accent === '#00cc00' ? '#000' : '#000',
                     clipPath: 'polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%)',
                     boxShadow: `0 0 22px ${slide.glow}0.55)`,
                   }}

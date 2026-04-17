@@ -31,7 +31,7 @@ const TEAM = [
 ]
 
 const MILESTONES = [
-  { year: '2021', title: 'Founded',              desc: 'TheStreamDesign launches as a freelance overlay studio serving local streamers.' },
+  { year: '2021', title: 'Founded',              desc: 'thestreamingdesign launches as a freelance overlay studio serving local streamers.' },
   { year: '2022', title: 'First 100 Clients',    desc: 'Word of mouth grows the studio to 100 clients and we expand into YouTube services.' },
   { year: '2023', title: 'Full Agency',           desc: 'We assemble a full team, launch all 11 services, and hit 300+ projects delivered.' },
   { year: '2024', title: 'Global Reach',          desc: '500+ projects, clients on 4 continents, and a 4.9★ average satisfaction rating.' },
@@ -43,8 +43,8 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About | TheStreamDesign</title>
-        <meta name="description" content="TheStreamDesign is a premium gaming and digital services agency built exclusively for gamers, streamers, and YouTubers." />
+        <title>About | thestreamingdesign</title>
+        <meta name="description" content="thestreamingdesign is a premium gaming and digital services agency built exclusively for gamers, streamers, and YouTubers." />
       </Helmet>
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
@@ -64,7 +64,7 @@ export default function About() {
                   Built By <span className="text-neon-green">Gamers</span>, For Creators
                 </motion.h1>
                 <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body text-white/60 text-lg leading-relaxed mb-8">
-                  TheStreamDesign was born out of frustration. Every design agency we found was built for corporate clients — not for streamers grinding to build their community, or YouTubers hustling to grow their channel.
+                  thestreamingdesign was born out of frustration. Every design agency we found was built for corporate clients — not for streamers grinding to build their community, or YouTubers hustling to grow their channel.
                 </motion.p>
                 <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="font-body text-white/60 text-lg leading-relaxed mb-10">
                   So we built our own. A studio that speaks fluent gaming, understands streaming culture, and delivers work that actually looks like it belongs in your niche.

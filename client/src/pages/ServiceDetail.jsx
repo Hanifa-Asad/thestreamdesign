@@ -50,7 +50,7 @@ export default function ServiceDetail() {
   return (
     <>
       <Helmet>
-        <title>{service.title} | TheStreamDesign</title>
+        <title>{service.title} | thestreamingdesign</title>
         <meta name="description" content={service.description} />
       </Helmet>
 

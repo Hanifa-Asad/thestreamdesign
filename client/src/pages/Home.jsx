@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>TheStreamDesign | Premium Gaming & Streaming Design Agency</title>
+        <title>thestreamingdesign | Premium Gaming & Streaming Design Agency</title>
         <meta name="description" content="Professional stream overlays, gaming logos, Twitch emotes, YouTube thumbnails and more. Designed exclusively for gamers, streamers and YouTubers." />
       </Helmet>
 

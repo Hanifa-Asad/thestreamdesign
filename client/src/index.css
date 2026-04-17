@@ -16,9 +16,9 @@
 
   ::-webkit-scrollbar { width: 5px; }
   ::-webkit-scrollbar-track { background: #0a0a0a; }
-  ::-webkit-scrollbar-thumb { background: #2cff05; border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: #3dff22; }
-  ::selection { background: rgba(44,255,5,0.22); color: #fff; }
+  ::-webkit-scrollbar-thumb { background: #0a8a00; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #1aff00; }
+  ::selection { background: rgba(0,204,0,0.22); color: #fff; }
 }
 
 @layer components {
@@ -32,23 +32,23 @@
     transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
   }
   .glass-card:hover {
-    border-color: rgba(44,255,5,0.35);
-    background: rgba(44,255,5,0.04);
-    box-shadow: 0 8px 32px rgba(44,255,5,0.1);
+    border-color: rgba(0,204,0,0.35);
+    background: rgba(0,204,0,0.04);
+    box-shadow: 0 8px 32px rgba(0,204,0,0.1);
   }
 
   /* Solid neon button */
   .btn-neon {
     @apply inline-flex items-center justify-center gap-2 font-display font-black text-sm
            tracking-[0.18em] uppercase text-black;
-    background: #2cff05;
+    background: #00cc00;
     clip-path: polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
-    box-shadow: 0 0 16px rgba(44,255,5,0.5);
+    box-shadow: 0 0 16px rgba(0,204,0,0.5);
     transition: box-shadow 0.3s ease, transform 0.2s ease, background 0.2s ease;
   }
   .btn-neon:hover {
-    background: #3dff22;
-    box-shadow: 0 0 32px rgba(44,255,5,0.85), 0 0 70px rgba(44,255,5,0.3);
+    background: #1aff00;
+    box-shadow: 0 0 32px rgba(0,204,0,0.85), 0 0 70px rgba(0,204,0,0.3);
     transform: translateY(-2px) scale(1.02);
   }
   .btn-neon:active { transform: translateY(0) scale(0.97); }
@@ -57,15 +57,15 @@
   .btn-outline-neon {
     @apply inline-flex items-center justify-center gap-2 font-display font-black text-sm
            tracking-[0.18em] uppercase text-neon-green;
-    border: 1px solid rgba(44,255,5,0.65);
+    border: 1px solid rgba(0,204,0,0.65);
     clip-path: polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
     background: transparent;
-    box-shadow: 0 0 8px rgba(44,255,5,0.12);
+    box-shadow: 0 0 8px rgba(0,204,0,0.12);
     transition: box-shadow 0.3s ease, transform 0.2s ease, background 0.2s ease;
   }
   .btn-outline-neon:hover {
-    background: rgba(44,255,5,0.08);
-    box-shadow: 0 0 22px rgba(44,255,5,0.55);
+    background: rgba(0,204,0,0.08);
+    box-shadow: 0 0 22px rgba(0,204,0,0.55);
     transform: translateY(-2px) scale(1.02);
   }
   .btn-outline-neon:active { transform: translateY(0) scale(0.97); }
@@ -74,17 +74,17 @@
   .section-title     { @apply font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white; }
 
   .text-neon {
-    color: #2cff05;
-    text-shadow: 0 0 12px rgba(44,255,5,0.55);
+    color: #00cc00;
+    text-shadow: 0 0 12px rgba(0,204,0,0.55);
   }
   .neon-divider {
     height: 1px;
-    background: linear-gradient(90deg,transparent,rgba(44,255,5,0.6),transparent);
+    background: linear-gradient(90deg,transparent,rgba(0,204,0,0.6),transparent);
   }
   .bg-grid {
     background-image:
-      linear-gradient(rgba(44,255,5,0.03) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(44,255,5,0.03) 1px,transparent 1px);
+      linear-gradient(rgba(0,204,0,0.03) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(0,204,0,0.03) 1px,transparent 1px);
     background-size: 40px 40px;
   }
   .noise-overlay {
@@ -92,37 +92,37 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size: 200px;
   }
-  .glow-text { text-shadow: 0 0 20px rgba(44,255,5,0.6), 0 0 50px rgba(44,255,5,0.22); }
+  .glow-text { text-shadow: 0 0 20px rgba(0,204,0,0.6), 0 0 50px rgba(0,204,0,0.22); }
 }
 
 @layer utilities {
   .text-gradient-neon {
-    background: linear-gradient(135deg,#2cff05,#7fff5e);
+    background: linear-gradient(135deg,#00cc00,#7fff5e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .border-neon-glow {
-    border: 1px solid rgba(44,255,5,0.4);
-    box-shadow: 0 0 12px rgba(44,255,5,0.2), inset 0 0 12px rgba(44,255,5,0.04);
+    border: 1px solid rgba(0,204,0,0.4);
+    box-shadow: 0 0 12px rgba(0,204,0,0.2), inset 0 0 12px rgba(0,204,0,0.04);
   }
   .clip-skew   { clip-path: polygon(0 0,100% 0,96% 100%,4% 100%); }
   .hover-glow  { transition: box-shadow 0.3s ease, transform 0.25s ease; }
   .hover-glow:hover {
-    box-shadow: 0 8px 40px rgba(44,255,5,0.15), 0 0 0 1px rgba(44,255,5,0.3);
+    box-shadow: 0 8px 40px rgba(0,204,0,0.15), 0 0 0 1px rgba(0,204,0,0.3);
     transform: translateY(-5px);
   }
 }
 
 /* ─── Keyframes ─── */
 @keyframes textGlow {
-  0%   { text-shadow: 0 0 12px rgba(44,255,5,0.45); }
-  100% { text-shadow: 0 0 28px rgba(44,255,5,0.95), 0 0 60px rgba(44,255,5,0.38); }
+  0%   { text-shadow: 0 0 12px rgba(0,204,0,0.45); }
+  100% { text-shadow: 0 0 28px rgba(0,204,0,0.95), 0 0 60px rgba(0,204,0,0.38); }
 }
 .animate-text-glow { animation: textGlow 2.2s ease-in-out infinite alternate; }
 
 @keyframes pulseNeon {
-  0%,100% { box-shadow: 0 0 10px rgba(44,255,5,0.4); }
-  50%      { box-shadow: 0 0 28px rgba(44,255,5,0.85), 0 0 55px rgba(44,255,5,0.3); }
+  0%,100% { box-shadow: 0 0 10px rgba(0,204,0,0.4); }
+  50%      { box-shadow: 0 0 28px rgba(0,204,0,0.85), 0 0 55px rgba(0,204,0,0.3); }
 }
 .animate-pulse-neon { animation: pulseNeon 2.2s ease-in-out infinite; }

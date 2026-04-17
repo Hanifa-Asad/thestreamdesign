@@ -72,7 +72,7 @@ export default function WhyUsSection() {
                 <Icon
                   size={20}
                   className="relative z-10 transition-transform duration-300 group-hover:scale-110"
-                  style={{ color: '#2cff05', filter: 'drop-shadow(0 0 5px rgba(44,255,5,0.5))' }}
+                  style={{ color: '#00cc00', filter: 'drop-shadow(0 0 5px rgba(44,255,5,0.5))' }}
                 />
               </div>
 

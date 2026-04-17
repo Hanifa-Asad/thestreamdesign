@@ -1,4 +1,4 @@
-// ─── TheStreamDesign — Services Data ───────────────────────────────────────
+// ─── thestreamingdesign — Services Data ───────────────────────────────────────
 // Central source of truth. Used by Services page, ServiceDetail, Pricing, Navbar.
 
 import {

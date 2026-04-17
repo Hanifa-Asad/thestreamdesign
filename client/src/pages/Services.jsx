@@ -51,7 +51,7 @@ export default function Services() {
   return (
     <>
       <Helmet>
-        <title>Services | TheStreamDesign</title>
+        <title>Services | thestreamingdesign</title>
         <meta name="description" content="Stream overlays, logos, Twitch emotes, YouTube thumbnails, video editing and more." />
       </Helmet>
 
