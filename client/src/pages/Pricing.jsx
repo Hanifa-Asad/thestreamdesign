@@ -59,11 +59,20 @@ const PRICING_DATA = {
       { name: 'Premium',  price: '$--', delivery: '2 days',  revisions: 'Unlimited', features: ['Up to 40 min', 'Advanced effects', 'Thumbnail included', 'Project file', 'Express delivery'] },
     ],
   },
+  'web-development': {
+    label: 'Web Development',
+    tiers: [
+      { name: 'Basic',    price: '$--', delivery: '10 days', revisions: '2',         features: ['5 pages', 'Responsive design', 'Contact form', 'Mobile optimized', 'Basic SEO'] },
+      { name: 'Standard', price: '$--', delivery: '14 days', revisions: 'Unlimited', features: ['10 pages', 'CMS included', 'Email integration', 'Social links', 'Analytics setup', 'SSL certificate'] },
+      { name: 'Premium',  price: '$--', delivery: '21 days', revisions: 'Unlimited', features: ['Unlimited pages', 'Custom functionality', 'Advanced CMS', 'User accounts', 'Payment processing', '3 months support'] },
+    ],
+  },
 }
 
 const CATEGORY_TABS = [
   { id: SERVICE_CATEGORIES.GAMERS_STREAMERS, label: 'Gamers & Streamers' },
   { id: SERVICE_CATEGORIES.YOUTUBERS,        label: 'YouTubers' },
+  { id: SERVICE_CATEGORIES.DEVELOPMENT,      label: 'Development' },
 ]
 
 const TIER_COLORS = {
@@ -98,6 +107,21 @@ export default function Pricing() {
 
         {/* ── Page Hero ── */}
         <section className="relative pt-36 pb-20 overflow-hidden">
+          {/* Gaming character - left side */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="absolute -left-20 top-1/3 w-80 h-96 pointer-events-none hidden lg:block"
+          >
+            <img 
+              src="/characters/gaming-character-2.svg" 
+              alt=""
+              className="w-full h-full object-contain opacity-45"
+              style={{ filter: 'drop-shadow(0 0 25px rgba(57,255,20,0.3))' }}
+            />
+          </motion.div>
+
           <div className="absolute inset-0 bg-grid bg-[length:40px_40px] pointer-events-none" />
           <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
           <div className="section-container relative z-10 text-center">

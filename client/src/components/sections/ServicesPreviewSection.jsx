@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import SectionHeader from '@components/ui/SectionHeader'
 import ServiceCard from '@components/ui/ServiceCard'
@@ -11,8 +12,24 @@ const YT_PREVIEW     = SERVICES.filter(s => s.category === SERVICE_CATEGORIES.YO
 
 export default function ServicesPreviewSection() {
   return (
-    <section className="py-24 relative">
-      <div className="section-container">
+    <section className="py-24 relative overflow-hidden">
+      {/* Gaming character - subtle decoration bottom left */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="absolute -bottom-10 -left-20 w-56 h-72 pointer-events-none hidden lg:block"
+      >
+        <img 
+          src="/characters/gaming-character-3.svg" 
+          alt=""
+          className="w-full h-full object-contain opacity-40"
+          style={{ filter: 'drop-shadow(0 0 25px rgba(57,255,20,0.3))' }}
+        />
+      </motion.div>
+
+      <div className="section-container relative z-10">
 
         <SectionHeader
           label="What We Do"

@@ -194,6 +194,21 @@ export default function Contact() {
 
         {/* ── Page Hero ── */}
         <section className="relative pt-36 pb-16 overflow-hidden">
+          {/* Gaming character - right side */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="absolute -right-20 top-1/4 w-80 h-96 pointer-events-none hidden lg:block"
+          >
+            <img 
+              src="/characters/gaming-character-4.svg" 
+              alt=""
+              className="w-full h-full object-contain opacity-40"
+              style={{ filter: 'drop-shadow(0 0 25px rgba(57,255,20,0.3))' }}
+            />
+          </motion.div>
+
           <div className="absolute inset-0 bg-grid bg-[length:40px_40px] pointer-events-none" />
           <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
           <div className="section-container relative z-10 text-center">

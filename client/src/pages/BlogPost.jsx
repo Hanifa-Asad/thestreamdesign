@@ -25,6 +25,21 @@ export default function BlogPost() {
         {/* ── Hero cover ── */}
         <div className={`relative w-full bg-gradient-to-br ${post.gradient} overflow-hidden`}
           style={{ height: 'clamp(280px, 40vw, 480px)', paddingTop: '80px' }}>
+          {/* Gaming character - left side */}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="absolute -left-32 bottom-0 w-80 h-96 pointer-events-none hidden lg:block"
+          >
+            <img 
+              src="/characters/gaming-character-1.svg" 
+              alt=""
+              className="w-full h-full object-contain opacity-25"
+              style={{ filter: 'drop-shadow(0 0 20px rgba(57,255,20,0.2))' }}
+            />
+          </motion.div>
+
           <div className="absolute inset-0" style={{ background: post.coverBg }} />
           {/* Grid pattern */}
           <div className="absolute inset-0" style={{

@@ -67,10 +67,26 @@ const TESTIMONIALS = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-24 relative bg-dark-200/20">
+    <section className="py-24 relative bg-dark-200/20 overflow-hidden">
+      {/* Gaming character accent - top left */}
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="absolute top-0 -left-24 w-64 h-64 pointer-events-none hidden lg:block"
+      >
+        <img 
+          src="/characters/gaming-character-1.svg" 
+          alt=""
+          className="w-full h-full object-contain opacity-30"
+          style={{ filter: 'drop-shadow(0 0 15px rgba(57,255,20,0.2))' }}
+        />
+      </motion.div>
+
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neon-green/20 to-transparent" />
 
-      <div className="section-container">
+      <div className="section-container relative z-10">
         <SectionHeader
           label="Client Reviews"
           title="What Creators"

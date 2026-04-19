@@ -1,0 +1,39 @@
+<svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 20px rgba(57,255,20,0.6))">
+  <!-- Neon Cyberpunk Gaming Character -->
+  <defs>
+    <linearGradient id="neonGreen1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#39FF14;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc00;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Glow effect -->
+  <circle cx="100" cy="150" r="120" fill="none" stroke="#39FF14" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Body - Futuristic suit -->
+  <rect x="65" y="120" width="70" height="80" rx="5" fill="url(#neonGreen1)" opacity="0.9"/>
+  
+  <!-- Arms -->
+  <rect x="30" y="130" width="35" height="20" rx="10" fill="#39FF14" opacity="0.8"/>
+  <rect x="135" y="130" width="35" height="20" rx="10" fill="#39FF14" opacity="0.8"/>
+  
+  <!-- Head -->
+  <circle cx="100" cy="80" r="35" fill="#00cc00" opacity="0.9"/>
+  
+  <!-- Visor/Eyes - Neon effect -->
+  <rect x="75" y="70" width="50" height="15" rx="3" fill="#39FF14" opacity="0.95"/>
+  <rect x="82" y="73" width="12" height="9" fill="#000" opacity="0.8"/>
+  <rect x="106" y="73" width="12" height="9" fill="#000" opacity="0.8"/>
+  
+  <!-- Neon accents -->
+  <line x1="65" y1="140" x2="65" y2="180" stroke="#39FF14" stroke-width="3" opacity="0.7"/>
+  <line x1="135" y1="140" x2="135" y2="180" stroke="#39FF14" stroke-width="3" opacity="0.7"/>
+  
+  <!-- Legs -->
+  <rect x="75" y="200" width="15" height="50" rx="5" fill="#39FF14" opacity="0.8"/>
+  <rect x="110" y="200" width="15" height="50" rx="5" fill="#39FF14" opacity="0.8"/>
+  
+  <!-- Glow lines -->
+  <line x1="50" y1="100" x2="80" y2="110" stroke="#39FF14" stroke-width="2" opacity="0.5"/>
+  <line x1="150" y1="100" x2="120" y2="110" stroke="#39FF14" stroke-width="2" opacity="0.5"/>
+</svg>

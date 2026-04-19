@@ -24,8 +24,18 @@ const CATEGORY_COLORS = {
 
 export default function PortfolioPreviewSection() {
   return (
-    <section className="py-24">
-      <div className="section-container">
+    <section className="py-24 relative">
+      {/* Subtle gaming character - top right corner */}
+      <div className="absolute -top-20 -right-10 w-48 h-64 pointer-events-none hidden lg:block opacity-30">
+        <img 
+          src="/characters/gaming-character-1.svg" 
+          alt=""
+          className="w-full h-full object-contain"
+          style={{ filter: 'drop-shadow(0 0 20px rgba(57,255,20,0.2))' }}
+        />
+      </div>
+
+      <div className="section-container relative z-10">
         <SectionHeader
           label="Our Work"
           title="Portfolio"
@@ -90,7 +100,7 @@ export default function PortfolioPreviewSection() {
 
         <div className="text-center">
           <GlowButton as="link" to="/portfolio" variant="outline" iconRight={<ArrowRight size={16} />}>
-            View Full Portfolio
+            View All Our Work
           </GlowButton>
         </div>
       </div>

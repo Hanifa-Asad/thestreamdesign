@@ -3,12 +3,13 @@
 
 import {
   Gamepad2, Layers, Monitor, Smile,
-  Youtube, Image, Film, Video, Scissors, Settings, BarChart3,
+  Youtube, Image, Film, Video, Scissors, Settings, BarChart3, Globe,
 } from 'lucide-react'
 
 export const SERVICE_CATEGORIES = {
   GAMERS_STREAMERS: 'gamers-streamers',
   YOUTUBERS: 'youtubers',
+  DEVELOPMENT: 'development',
 }
 
 export const SERVICES = [
@@ -244,6 +245,31 @@ export const SERVICES = [
     deliverables: ['Strategy deck', 'Weekly reports', 'Growth roadmap'],
     turnaround: 'Ongoing monthly service',
     placeholder: '/images/placeholder-ch-mgmt.jpg',
+  },
+
+  // ── Development ───────────────────────────────────────────────────────────
+  {
+    id: 'web-development',
+    slug: 'web-development',
+    category: SERVICE_CATEGORIES.DEVELOPMENT,
+    icon: Globe,
+    title: 'Web Development',
+    tagline: 'Professional websites built for creators',
+    description:
+      'Custom-built, high-performance websites for gamers, streamers, and creators. From portfolio sites to community platforms, we create sites that convert visitors into fans.',
+    features: [
+      'Responsive design (mobile-first)',
+      'Fast loading speeds & optimization',
+      'SEO-friendly architecture',
+      'Contact forms & email integration',
+      'Social media integration',
+      'Content management system (CMS)',
+      'SSL security & backups included',
+      'Hosting setup & configuration',
+    ],
+    deliverables: ['Fully deployed website', 'Source code', 'Setup & training guide', 'Admin documentation'],
+    turnaround: '2–4 weeks',
+    placeholder: '/images/placeholder-web-dev.jpg',
   },
 ]
 

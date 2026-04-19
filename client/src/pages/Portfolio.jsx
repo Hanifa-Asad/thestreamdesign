@@ -69,6 +69,21 @@ export default function Portfolio() {
 
         {/* ── Page Hero ── */}
         <section className="relative pt-36 pb-20 overflow-hidden">
+          {/* Gaming character - left side */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="absolute -left-20 top-1/3 w-80 h-96 pointer-events-none hidden lg:block"
+          >
+            <img 
+              src="/characters/gaming-character-3.svg" 
+              alt=""
+              className="w-full h-full object-contain opacity-35"
+              style={{ filter: 'drop-shadow(0 0 25px rgba(57,255,20,0.3))' }}
+            />
+          </motion.div>
+
           <div className="absolute inset-0 bg-grid bg-[length:40px_40px] pointer-events-none" />
           <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
 
@@ -86,7 +101,7 @@ export default function Portfolio() {
               transition={{ delay: 0.1 }}
               className="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-white mb-6"
             >
-              The <span className="text-neon-green">Portfolio</span>
+              Our <span className="text-neon-green">Work</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}

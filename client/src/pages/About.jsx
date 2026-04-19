@@ -50,7 +50,20 @@ export default function About() {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
 
         {/* ── Hero ── */}
-        <section className="relative pt-36 pb-24 overflow-hidden">
+        <section className="relative pt-36 pb-24 overflow-hidden">          {/* Gaming character - left accent */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="absolute left-0 top-1/2 -translate-y-1/2 w-56 h-72 pointer-events-none hidden lg:block"
+          >
+            <img 
+              src="/characters/gaming-character-3.svg" 
+              alt=""
+              className="w-full h-full object-contain opacity-50"
+              style={{ filter: 'drop-shadow(0 0 25px rgba(57,255,20,0.3))' }}
+            />
+          </motion.div>
           <div className="absolute inset-0 bg-grid bg-[length:40px_40px] pointer-events-none" />
           <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
 

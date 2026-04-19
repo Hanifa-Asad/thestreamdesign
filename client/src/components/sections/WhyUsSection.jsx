@@ -13,7 +13,23 @@ const REASONS = [
 
 export default function WhyUsSection() {
   return (
-    <section className="py-24 relative">
+    <section className="py-24 relative overflow-hidden">
+      {/* Gaming character - accent on right side */}
+      <motion.div
+        initial={{ opacity: 0, x: 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9, delay: 0.4 }}
+        className="absolute -top-20 -right-32 w-72 h-80 pointer-events-none hidden xl:block"
+      >
+        <img 
+          src="/characters/gaming-character-1.svg" 
+          alt=""
+          className="w-full h-full object-contain opacity-35"
+          style={{ filter: 'drop-shadow(0 0 20px rgba(57,255,20,0.25))', transform: 'scaleX(-1)' }}
+        />
+      </motion.div>
+
       {/* Top + bottom neon lines */}
       <div className="absolute top-0 left-0 right-0 h-px"
         style={{ background: 'linear-gradient(90deg,transparent,rgba(44,255,5,0.25),transparent)' }} />
@@ -83,6 +99,7 @@ export default function WhyUsSection() {
             </motion.div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   )

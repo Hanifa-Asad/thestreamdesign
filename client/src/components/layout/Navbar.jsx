@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, Gamepad2, Youtube, ArrowRight } from 'lucide-react'
+import { Menu, X, ChevronDown, Gamepad2, Youtube, ArrowRight, Globe } from 'lucide-react'
 import { SERVICES, SERVICE_CATEGORIES } from '@utils/servicesData'
 
 // ── Logo config ─────────────────────────────────────────────────────────────
@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { label: 'Home',      path: '/' },
   { label: 'About',     path: '/about' },
   { label: 'Services',  path: '/services', hasDropdown: true },
-  { label: 'Portfolio', path: '/portfolio' },
+  { label: 'Our Work', path: '/portfolio' },
   { label: 'Pricing',   path: '/pricing' },
   { label: 'Blog',      path: '/blog' },
   { label: 'Contact',   path: '/contact' },
@@ -20,6 +20,7 @@ const NAV_LINKS = [
 
 const GAMER_SERVICES = SERVICES.filter(s => s.category === SERVICE_CATEGORIES.GAMERS_STREAMERS)
 const YT_SERVICES    = SERVICES.filter(s => s.category === SERVICE_CATEGORIES.YOUTUBERS)
+const DEV_SERVICES   = SERVICES.filter(s => s.category === SERVICE_CATEGORIES.DEVELOPMENT)
 
 function Logo() {
   return (
@@ -50,7 +51,7 @@ function ServicesDropdown({ onClose }) {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 8, scale: 0.97 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
-      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[620px] max-w-[95vw] rounded-2xl overflow-hidden z-50 shadow-2xl"
+      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[900px] max-w-[95vw] rounded-2xl overflow-hidden z-50 shadow-2xl"
       style={{
         background: 'rgba(5,5,5,0.97)',
         border: '1px solid rgba(57,255,20,0.2)',
@@ -69,7 +70,7 @@ function ServicesDropdown({ onClose }) {
         </Link>
       </div>
 
-      <div className="p-4 grid grid-cols-2 gap-3">
+      <div className="p-4 grid grid-cols-3 gap-3">
         {/* Column 1: Gamers & Streamers */}
         <div>
           <div className="flex items-center gap-2 px-3 pb-2 mb-1">
@@ -93,6 +94,18 @@ function ServicesDropdown({ onClose }) {
             <DropdownItem key={svc.id} service={svc} onClose={onClose} />
           ))}
         </div>
+
+        {/* Column 3: Development */}
+        <div>
+          <div className="flex items-center gap-2 px-3 pb-2 mb-1">
+            <Globe size={13} style={{ color: '#39FF14' }} />
+            <span className="font-display font-bold text-xs tracking-widest uppercase"
+              style={{ color: 'rgba(57,255,20,0.8)' }}>Development</span>
+          </div>
+          {DEV_SERVICES.map(svc => (
+            <DropdownItem key={svc.id} service={svc} onClose={onClose} />
+          ))}
+        </div>
       </div>
 
       {/* Footer CTA */}
@@ -112,12 +125,22 @@ function ServicesDropdown({ onClose }) {
 
 function DropdownItem({ service, onClose }) {
   const Icon = service.icon
+  const navigate = useNavigate()
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    onClose()
+    // Use a small delay to ensure visual feedback before navigation
+    setTimeout(() => {
+      navigate(`/services/${service.slug}`)
+    }, 50)
+  }
+
   return (
-    <Link
-      to={`/services/${service.slug}`}
-      onClick={onClose}
-      className="flex items-center gap-2.5 px-3 py-2 rounded-lg group transition-all duration-150"
-      style={{ border: '1px solid transparent' }}
+    <button
+      onClick={handleClick}
+      className="flex items-center gap-2.5 px-3 py-2 rounded-lg group transition-all duration-150 w-full text-left"
+      style={{ border: '1px solid transparent', background: 'transparent' }}
       onMouseEnter={e => {
         e.currentTarget.style.background = 'rgba(57,255,20,0.06)'
         e.currentTarget.style.borderColor = 'rgba(57,255,20,0.2)'
@@ -134,17 +157,26 @@ function DropdownItem({ service, onClose }) {
       <span className="font-body text-white/65 text-sm group-hover:text-white transition-colors leading-tight">
         {service.title}
       </span>
-    </Link>
+    </button>
   )
 }
 
 // ── Mobile accordion services list ──────────────────────────────────────────
 function MobileServicesAccordion({ onClose }) {
   const [openCat, setOpenCat] = useState(null)
+  const navigate = useNavigate()
+
+  const handleMobileServiceClick = (slug) => {
+    onClose()
+    setTimeout(() => {
+      navigate(`/services/${slug}`)
+    }, 50)
+  }
 
   const categories = [
     { key: 'gamers', label: 'Gamers & Streamers', Icon: Gamepad2, items: GAMER_SERVICES },
     { key: 'yt',     label: 'YouTubers',           Icon: Youtube,  items: YT_SERVICES    },
+    { key: 'dev',    label: 'Development',         Icon: Globe,    items: DEV_SERVICES   },
   ]
 
   return (
@@ -175,11 +207,12 @@ function MobileServicesAccordion({ onClose }) {
                 {items.map(svc => {
                   const SvcIcon = svc.icon
                   return (
-                    <Link key={svc.id} to={`/services/${svc.slug}`} onClick={onClose}
-                      className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-white/55 hover:text-neon-green transition-colors text-sm font-body">
+                    <button key={svc.id} 
+                      onClick={() => handleMobileServiceClick(svc.slug)}
+                      className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-white/55 hover:text-neon-green transition-colors text-sm font-body w-full text-left">
                       <SvcIcon size={12} style={{ color: '#39FF14', flexShrink: 0 }} />
                       {svc.title}
-                    </Link>
+                    </button>
                   )
                 })}
               </motion.div>

@@ -20,7 +20,7 @@ const FOOTER_LINKS = {
   Company: [
     { label: 'Home',      path: '/' },
     { label: 'About',     path: '/about' },
-    { label: 'Portfolio', path: '/portfolio' },
+    { label: 'Our Work', path: '/portfolio' },
     { label: 'Pricing',   path: '/pricing' },
     { label: 'Blog',      path: '/blog' },
     { label: 'Contact',   path: '/contact' },

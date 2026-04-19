@@ -144,7 +144,7 @@ export default function BannerCarousel() {
 
       {/* ── Slide content ── */}
       <div className="absolute inset-0 flex items-center">
-        <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           <AnimatePresence mode="wait" custom={dir}>
             <motion.div
               key={slide.id}

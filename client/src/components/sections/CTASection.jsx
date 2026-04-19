@@ -10,6 +10,22 @@ export default function CTASection() {
 
   return (
     <section className="py-24 relative overflow-hidden">
+      {/* Gaming character silhouette in background */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="absolute top-1/2 -right-40 -translate-y-1/2 w-96 h-96 pointer-events-none hidden lg:block"
+      >
+        <img 
+          src="/characters/gaming-character-2.svg" 
+          alt=""
+          className="w-full h-full object-contain opacity-20"
+          style={{ filter: 'drop-shadow(0 0 15px rgba(57,255,20,0.15))' }}
+        />
+      </motion.div>
+
       {/* BG glow */}
       <div className="absolute inset-0 bg-gradient-to-br from-neon-green/5 via-transparent to-transparent pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2

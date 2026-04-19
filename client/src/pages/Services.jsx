@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Gamepad2, Youtube, ArrowRight } from 'lucide-react'
+import { Gamepad2, Youtube, ArrowRight, Globe } from 'lucide-react'
 import SectionHeader from '@components/ui/SectionHeader'
 import ServiceCard from '@components/ui/ServiceCard'
 import GlowButton from '@components/ui/GlowButton'
@@ -12,6 +12,7 @@ const TABS = [
   { id: 'all',                               label: 'All Services',       icon: null },
   { id: SERVICE_CATEGORIES.GAMERS_STREAMERS, label: 'Gamers & Streamers', icon: Gamepad2 },
   { id: SERVICE_CATEGORIES.YOUTUBERS,        label: 'YouTubers',           icon: Youtube },
+  { id: SERVICE_CATEGORIES.DEVELOPMENT,      label: 'Development',         icon: Globe },
 ]
 
 function CategoryBlock({ icon: Icon, title, description, services }) {
@@ -47,6 +48,7 @@ export default function Services() {
 
   const gamerServices = SERVICES.filter(s => s.category === SERVICE_CATEGORIES.GAMERS_STREAMERS)
   const ytServices    = SERVICES.filter(s => s.category === SERVICE_CATEGORIES.YOUTUBERS)
+  const devServices   = SERVICES.filter(s => s.category === SERVICE_CATEGORIES.DEVELOPMENT)
 
   return (
     <>
@@ -59,6 +61,21 @@ export default function Services() {
 
         {/* Page Hero */}
         <section className="relative pt-36 pb-20 overflow-hidden">
+          {/* Gaming character - right side */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="absolute -right-32 top-1/3 w-80 h-96 pointer-events-none hidden lg:block"
+          >
+            <img 
+              src="/characters/gaming-character-1.svg" 
+              alt=""
+              className="w-full h-full object-contain opacity-35"
+              style={{ filter: 'drop-shadow(0 0 25px rgba(57,255,20,0.3))', transform: 'scaleX(-1)' }}
+            />
+          </motion.div>
+
           <div className="absolute inset-0 bg-grid bg-[length:40px_40px] pointer-events-none" />
           <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
           <div className="section-container relative z-10 text-center">
@@ -72,7 +89,7 @@ export default function Services() {
               Every service is built specifically for gaming culture. No generic work, no cookie-cutter templates — just premium assets that make your brand unforgettable.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-wrap items-center justify-center gap-8">
-              {[{ n: '11', label: 'Services' }, { n: '2', label: 'Categories' }, { n: '500+', label: 'Projects Done' }].map(({ n, label }) => (
+              {[{ n: '12', label: 'Services' }, { n: '3', label: 'Categories' }, { n: '500+', label: 'Projects Done' }].map(({ n, label }) => (
                 <div key={label} className="flex items-center gap-2">
                   <span className="font-display font-black text-2xl text-neon-green">{n}</span>
                   <span className="font-body text-white/40 text-sm uppercase tracking-wider">{label}</span>
@@ -117,6 +134,8 @@ export default function Services() {
                   <CategoryBlock icon={Gamepad2} title="Gamers & Streamers" description="Level up your stream with professional branding that commands attention." services={gamerServices} />
                   <div className="my-16 h-px bg-gradient-to-r from-transparent via-neon-green/20 to-transparent" />
                   <CategoryBlock icon={Youtube} title="YouTubers" description="Grow your channel with designs and management that convert viewers into subscribers." services={ytServices} />
+                  <div className="my-16 h-px bg-gradient-to-r from-transparent via-neon-green/20 to-transparent" />
+                  <CategoryBlock icon={Globe} title="Development" description="Professional websites and tools built for creators and gaming communities." services={devServices} />
                 </motion.div>
               ) : (
                 <motion.div key={activeTab} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }}>

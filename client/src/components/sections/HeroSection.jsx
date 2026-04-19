@@ -42,6 +42,36 @@ export default function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 h-44 pointer-events-none"
         style={{ background: 'linear-gradient(to top,#0a0a0a,transparent)' }} />
 
+      {/* Gaming Characters - Left side */}
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: -20 }}
+        transition={{ duration: 1.2, delay: 0.8 }}
+        className="absolute left-0 top-1/2 -translate-y-1/2 w-40 h-80 pointer-events-none hidden lg:block"
+      >
+        <img 
+          src="/characters/gaming-character-2.svg" 
+          alt="Gaming character"
+          className="w-full h-full object-contain opacity-60"
+          style={{ filter: 'drop-shadow(0 0 30px rgba(57,255,20,0.4))' }}
+        />
+      </motion.div>
+
+      {/* Gaming Characters - Right side */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 20 }}
+        transition={{ duration: 1.2, delay: 0.9 }}
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-40 h-80 pointer-events-none hidden lg:block"
+      >
+        <img 
+          src="/characters/gaming-character-4.svg" 
+          alt="Gaming character"
+          className="w-full h-full object-contain opacity-60"
+          style={{ filter: 'drop-shadow(0 0 30px rgba(57,255,20,0.4))', transform: 'scaleX(-1)' }}
+        />
+      </motion.div>
+
       {/* ── Content ── */}
       <div className="section-container relative z-10 pt-28 pb-24">
         <div className="max-w-5xl mx-auto text-center">
@@ -128,7 +158,7 @@ export default function HeroSection() {
               Start Your Project
             </GlowButton>
             <GlowButton as="link" to="/portfolio" variant="outline" size="lg" icon={<Play size={15} />}>
-              View Portfolio
+              View Our Work
             </GlowButton>
           </motion.div>
 

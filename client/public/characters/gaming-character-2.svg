@@ -1,0 +1,51 @@
+<svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 25px rgba(57,255,20,0.5))">
+  <!-- Pixel Art Gaming Knight -->
+  <defs>
+    <linearGradient id="metalGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc00;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Helmet -->
+  <rect x="75" y="20" width="50" height="45" fill="url(#metalGreen)" opacity="0.95"/>
+  <rect x="70" y="50" width="60" height="8" fill="#39FF14" opacity="0.8"/>
+  
+  <!-- Visor opening -->
+  <rect x="85" y="35" width="30" height="15" fill="#1a1a1a" opacity="0.9"/>
+  
+  <!-- Glowing eyes -->
+  <circle cx="95" cy="42" r="4" fill="#39FF14" opacity="0.9"/>
+  <circle cx="105" cy="42" r="4" fill="#39FF14" opacity="0.9"/>
+  
+  <!-- Shoulder armor -->
+  <polygon points="50,60 65,65 65,90 50,85" fill="#00cc00" opacity="0.85"/>
+  <polygon points="150,60 135,65 135,90 150,85" fill="#00cc00" opacity="0.85"/>
+  
+  <!-- Chest plate -->
+  <rect x="60" y="70" width="80" height="60" rx="5" fill="url(#metalGreen)" opacity="0.9"/>
+  <line x1="100" y1="70" x2="100" y2="130" stroke="#39FF14" stroke-width="2" opacity="0.6"/>
+  
+  <!-- Neon details on chest -->
+  <rect x="75" y="85" width="10" height="25" fill="#39FF14" opacity="0.7"/>
+  <rect x="115" y="85" width="10" height="25" fill="#39FF14" opacity="0.7"/>
+  
+  <!-- Arms -->
+  <rect x="25" y="75" width="35" height="45" rx="5" fill="#00cc00" opacity="0.8"/>
+  <rect x="140" y="75" width="35" height="45" rx="5" fill="#00cc00" opacity="0.8"/>
+  
+  <!-- Gauntlets -->
+  <rect x="20" y="120" width="45" height="20" rx="5" fill="#39FF14" opacity="0.8"/>
+  <rect x="135" y="120" width="45" height="20" rx="5" fill="#39FF14" opacity="0.8"/>
+  
+  <!-- Legs -->
+  <rect x="70" y="130" width="20" height="50" fill="#00cc00" opacity="0.85"/>
+  <rect x="110" y="130" width="20" height="50" fill="#00cc00" opacity="0.85"/>
+  
+  <!-- Boots -->
+  <rect x="65" y="180" width="30" height="25" rx="3" fill="#39FF14" opacity="0.8"/>
+  <rect x="105" y="180" width="30" height="25" rx="3" fill="#39FF14" opacity="0.8"/>
+  
+  <!-- Energy aura -->
+  <circle cx="100" cy="140" r="95" fill="none" stroke="#39FF14" stroke-width="1" opacity="0.3"/>
+</svg>
