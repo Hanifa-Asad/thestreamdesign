@@ -100,7 +100,6 @@ export default function WhyUsSection() {
           ))}
         </div>
       </div>
-      </div>
     </section>
   )
 }
