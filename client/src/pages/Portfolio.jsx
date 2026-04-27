@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ExternalLink, X, ChevronLeft, ChevronRight, ZoomIn, ArrowRight } from 'lucide-react'
@@ -43,6 +43,12 @@ const STATS = [
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [lightbox,     setLightbox]     = useState(null)
+  const filterRef = useRef(null)
+
+  const scrollFilters = (direction) => {
+    if (!filterRef.current) return
+    filterRef.current.scrollBy({ left: direction * 280, behavior: 'smooth' })
+  }
 
   const filtered = useMemo(() =>
     activeFilter === 'All'
@@ -144,7 +150,10 @@ export default function Portfolio() {
         {/* ── Filter Bar ── */}
         <div className="sticky top-16 md:top-20 z-30 bg-dark-100/95 backdrop-blur-md border-b border-glass-border py-4">
           <div className="section-container">
-            <div className="flex flex-wrap items-center gap-3 overflow-x-auto pb-1">
+            <div
+              ref={filterRef}
+              className="flex items-center gap-3 overflow-x-auto scroll-smooth pb-1"
+            >
               {CATEGORIES.map(cat => {
                 const count   = cat === 'All' ? PORTFOLIO_ITEMS.length : PORTFOLIO_ITEMS.filter(p => p.category === cat).length
                 const isActive = activeFilter === cat

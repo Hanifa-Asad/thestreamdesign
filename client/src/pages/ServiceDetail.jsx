@@ -8,32 +8,8 @@ import {
 import GlowButton from '@components/ui/GlowButton'
 import ServiceCard from '@components/ui/ServiceCard'
 import CTASection from '@components/sections/CTASection'
-import { getServiceBySlug, SERVICES, SERVICE_CATEGORIES } from '@utils/servicesData'
+import { getServiceBySlug, PRICING_DATA, SERVICES, SERVICE_CATEGORIES } from '@utils/servicesData'
 import { SOCIAL_LINKS } from '@utils/emailConfig'
-
-const PRICING_PLACEHOLDER = [
-  {
-    tier: 'Basic',
-    price: '$--',
-    description: 'Perfect for creators just starting out',
-    features: ['1 concept', 'PNG export', '2 revisions', '5 day delivery'],
-    highlighted: false,
-  },
-  {
-    tier: 'Standard',
-    price: '$--',
-    description: 'Best value for growing channels',
-    features: ['3 concepts', 'PNG + SVG export', 'Unlimited revisions', '3 day delivery', 'Source files'],
-    highlighted: true,
-  },
-  {
-    tier: 'Premium',
-    price: '$--',
-    description: 'Full package for established creators',
-    features: ['5 concepts', 'All file formats', 'Unlimited revisions', '24h delivery', 'Source files', 'Brand guide'],
-    highlighted: false,
-  },
-]
 
 export default function ServiceDetail() {
   const { slug } = useParams()
@@ -46,6 +22,9 @@ export default function ServiceDetail() {
   const related = SERVICES
     .filter(s => s.category === service.category && s.slug !== slug)
     .slice(0, 3)
+
+  const pricing = PRICING_DATA[service.slug]
+  const plans = pricing?.tiers ?? []
 
   return (
     <>
@@ -222,56 +201,71 @@ export default function ServiceDetail() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {PRICING_PLACEHOLDER.map((plan, i) => (
-                <motion.div
-                  key={plan.tier}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className={`relative rounded-2xl p-8 flex flex-col border transition-all duration-300
-                    ${plan.highlighted
-                      ? 'bg-neon-green/8 border-neon-green/50 shadow-neon-md scale-105'
-                      : 'bg-dark-300/60 border-white/10 hover:border-neon-green/20'
-                    }`}
-                >
-                  {plan.highlighted && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <span className="bg-neon-green text-black font-display font-black text-xs px-4 py-1.5 rounded-full tracking-widest uppercase shadow-neon">
-                        Most Popular
-                      </span>
-                    </div>
-                  )}
+              {plans.length > 0 ? plans.map((plan, i) => {
+                const style = plan.name === 'Standard'
+                  ? { highlighted: true, btn: 'solid' }
+                  : { highlighted: false, btn: 'outline' }
 
-                  <div className="mb-6">
-                    <h3 className="font-display font-black text-xl text-white tracking-wide mb-1">{plan.tier}</h3>
-                    <p className="font-body text-white/40 text-sm">{plan.description}</p>
-                  </div>
-
-                  <div className="mb-8">
-                    <span className="font-display font-black text-4xl text-neon-green">{plan.price}</span>
-                    <p className="font-mono text-white/30 text-xs mt-2">Contact for current pricing</p>
-                  </div>
-
-                  <ul className="space-y-3 flex-1 mb-8">
-                    {plan.features.map(f => (
-                      <li key={f} className="flex items-center gap-3">
-                        <Check size={14} className="text-neon-green flex-shrink-0" />
-                        <span className="font-body text-white/60 text-sm">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <GlowButton
-                    as="link"
-                    to="/contact"
-                    variant={plan.highlighted ? 'solid' : 'outline'}
-                    className="w-full justify-center"
+                return (
+                  <motion.div
+                    key={plan.name}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className={`relative rounded-2xl p-8 flex flex-col border transition-all duration-300
+                      ${style.highlighted
+                        ? 'bg-neon-green/8 border-neon-green/50 shadow-neon-md scale-105'
+                        : 'bg-dark-300/60 border-white/10 hover:border-neon-green/20'
+                      }`}
                   >
-                    Order {plan.tier}
+                    {style.highlighted && (
+                      <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                        <span className="bg-neon-green text-black font-display font-black text-xs px-4 py-1.5 rounded-full tracking-widest uppercase shadow-neon">
+                          Recommended
+                        </span>
+                      </div>
+                    )}
+
+                    <div className="mb-6">
+                      <h3 className="font-display font-black text-xl text-white tracking-wide mb-1">{plan.name}</h3>
+                      <p className="font-body text-white/40 text-sm">{plan.description || 'One of our service tiers designed to fit your needs.'}</p>
+                    </div>
+
+                    <div className="mb-8">
+                      <span className="font-display font-black text-4xl text-neon-green">{plan.price}</span>
+                      <p className="font-mono text-white/30 text-xs mt-2">{plan.delivery} delivery • {plan.revisions} revisions</p>
+                    </div>
+
+                    <ul className="space-y-3 flex-1 mb-8">
+                      {plan.features.map(f => (
+                        <li key={f} className="flex items-center gap-3">
+                          <Check size={14} className="text-neon-green flex-shrink-0" />
+                          <span className="font-body text-white/60 text-sm">{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <GlowButton
+                      as="link"
+                      to="/contact"
+                      variant={style.btn}
+                      className="w-full justify-center"
+                    >
+                      Order {plan.name}
+                    </GlowButton>
+                  </motion.div>
+                )
+              }) : (
+                <div className="rounded-2xl border border-white/10 bg-dark-300/60 p-12 text-center col-span-full">
+                  <p className="font-body text-white/70 text-base mb-6">
+                    Pricing package details are available on the Pricing page. Contact us for the latest package rates.
+                  </p>
+                  <GlowButton as="link" to="/pricing" variant="outline" className="w-full justify-center">
+                    View Pricing Packages
                   </GlowButton>
-                </motion.div>
-              ))}
+                </div>
+              )}
             </div>
 
             <p className="text-center font-mono text-white/25 text-xs mt-8">

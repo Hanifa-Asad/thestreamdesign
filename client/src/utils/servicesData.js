@@ -281,5 +281,88 @@ export const SERVICES = [
   },
 ]
 
+export const PRICING_DATA = {
+  'gaming-logo-esports-design': {
+    label: 'Gaming Logo & Esports Design',
+    tiers: [
+      { name: 'Basic',    price: '$50',  delivery: '5 days',  revisions: '2',         features: ['1 logo concept', 'PNG export', '2 revisions', '5 day delivery'] },
+      { name: 'Standard', price: '$100', delivery: '3 days',  revisions: 'Unlimited', features: ['3 logo concepts', 'PNG + SVG export', 'Unlimited revisions', '3 day delivery', 'Source files'] },
+      { name: 'Premium',  price: '$150', delivery: '24 hrs',  revisions: 'Unlimited', features: ['5 logo concepts', 'All file formats', 'Unlimited revisions', '24h delivery', 'Source files', 'Brand guide'] },
+    ],
+  },
+  'stream-banners': {
+    label: 'Stream Banners',
+    tiers: [
+      { name: 'Basic',    price: '$30',  delivery: '4 days',  revisions: '2',         features: ['1 banner design', 'YouTube banner', 'PNG export', '2 revisions', '4 day delivery'] },
+      { name: 'Standard', price: '$65',  delivery: '2 days',  revisions: 'Unlimited', features: ['3 banner designs', 'YouTube + Twitch banners', 'PNG + PSD export', 'Unlimited revisions', '2 day delivery', 'Source files'] },
+      { name: 'Premium',  price: '$120', delivery: '24 hrs',  revisions: 'Unlimited', features: ['Full banner pack', 'All platforms covered', 'All file formats', 'Unlimited revisions', '24h delivery', 'Source files'] },
+    ],
+  },
+  'streaming-twitch-design': {
+    label: 'Streaming & Twitch Design',
+    tiers: [
+      { name: 'Basic',    price: '$75',  delivery: '3 days',  revisions: '2',         features: ['Static overlay package', 'Main gaming panel', 'PNG export', '2 revisions', '3 day delivery'] },
+      { name: 'Standard', price: '$150', delivery: '1 week', revisions: 'Unlimited', features: ['Animated overlay package', 'Main gaming panel', 'Starting soon panel', 'Stream ending panel', 'Animated alerts', 'Source files included'] },
+      { name: 'Premium',  price: '$300', delivery: '2-3 weeks', revisions: 'Unlimited', features: ['Full animated pack', 'Main gaming panel', 'Animated cam overlay', 'Starting soon + ending panels', 'Scene transitions', 'Custom emotes'] },
+    ],
+  },
+  'twitch-emotes': {
+    label: 'Twitch Emotes',
+    tiers: [
+      { name: 'Basic',    price: '$35',  delivery: '3 days',  revisions: '2',         features: ['3 custom static emotes', 'Twitch-ready sizing', 'PNG export (all sizes)', '2 revisions', '3 day delivery'] },
+      { name: 'Standard', price: '$75',  delivery: '1 week', revisions: 'Unlimited', features: ['5 custom emotes', '3 static + 2 animated', 'Twitch + YouTube ready', 'PNG + GIF export', 'Source files included'] },
+      { name: 'Premium',  price: '$150', delivery: '2-3 weeks', revisions: 'Unlimited', features: ['10 fully animated emotes', 'All platforms supported', 'PNG + GIF + APNG export', 'Sub badge set included', 'Commercial use rights'] },
+    ],
+  },
+  'thumbnail-design': {
+    label: 'Thumbnail Design',
+    tiers: [
+      { name: 'Basic',    price: '$15',  delivery: '3 days',  revisions: '2',         features: ['1 thumbnail design', '1920×1080 PNG export', 'Custom text & colors', '2 revisions'] },
+      { name: 'Standard', price: '$35',  delivery: '2 days',  revisions: 'Unlimited', features: ['3 thumbnail designs', '1920×1080 PNG + PSD', 'Custom graphics & effects', 'Source files included'] },
+      { name: 'Premium',  price: '$60',  delivery: '24 hrs',  revisions: 'Unlimited', features: ['5 thumbnail designs', 'All file formats', 'Advanced photo editing', 'Thumbnail style guide'] },
+    ],
+  },
+  'video-editing-for-streamers': {
+    label: 'Video Editing for Streamers',
+    tiers: [
+      { name: 'Basic',    price: '$80',  delivery: '4 days',  revisions: '2',         features: ['Up to 10 min video', 'Cuts & transitions', 'Background music', 'Basic color correction'] },
+      { name: 'Standard', price: '$180', delivery: '3 days',  revisions: 'Unlimited', features: ['Up to 25 min video', 'Cuts, transitions & effects', 'Sound design & music', 'Color grading', 'Subtitles & captions'] },
+      { name: 'Premium',  price: '$320', delivery: '24-48 hrs', revisions: 'Unlimited', features: ['Up to 60 min video', 'Advanced motion graphics', 'Custom intro & outro', 'Pro color grading', 'Sound design & mixing'] },
+    ],
+  },
+  'reels-editing': {
+    label: 'Reels Editing',
+    tiers: [
+      { name: 'Basic',    price: '$40',  delivery: '3 days',  revisions: '2',         features: ['Up to 60 sec reel', 'Cuts & transitions', 'Background music sync', 'Basic text & captions', '9:16 vertical export'] },
+      { name: 'Standard', price: '$90',  delivery: '2 days',  revisions: 'Unlimited', features: ['3 reels bundle up to 90 sec', 'Trendy transitions & effects', 'Beat-synced music', 'Animated captions', '9:16 + 1:1 exports'] },
+      { name: 'Premium',  price: '$160', delivery: '24 hrs',  revisions: 'Unlimited', features: ['5 reels up to 3 min', 'Advanced motion graphics', 'Custom animated text', 'Pro color grading', 'Sound design & mixing'] },
+    ],
+  },
+  'twitch-channel-setup-optimization': {
+    label: 'Twitch Channel Setup & Optimization',
+    tiers: [
+      { name: 'Basic',    price: '$120', delivery: '5 days',  revisions: '2',         features: ['Channel setup checklist', 'Panel + bio setup', 'Overlay installation guidance', 'Initial optimization review'] },
+      { name: 'Standard', price: '$240', delivery: '1 week',  revisions: 'Unlimited', features: ['Full channel setup', 'SEO & discoverability optimization', 'Design refresh', 'Alert + panel config', 'Growth recommendations'] },
+      { name: 'Premium',  price: '$420', delivery: '1-2 weeks', revisions: 'Unlimited', features: ['Ongoing channel optimization', 'Custom overlay install', 'Brand coherence across Twitch', 'Growth support plan', 'Priority turnaround'] },
+    ],
+  },
+  'youtube-channel-management-growth': {
+    label: 'YouTube Channel Management & Growth',
+    tiers: [
+      { name: 'Basic',    price: '$150', delivery: 'Monthly',  revisions: 'N/A',       features: ['Channel SEO optimization', '4 videos uploaded/month', 'Title & description writing', 'Tags & keywords research', 'Monthly analytics report'] },
+      { name: 'Standard', price: '$300', delivery: 'Monthly',  revisions: 'N/A',       features: ['Full channel SEO', '8 videos uploaded/month', 'Title, description & tags', 'Thumbnail scheduling', 'Community management', 'Bi-weekly analytics report'] },
+      { name: 'Premium',  price: '$500', delivery: 'Monthly',  revisions: 'N/A',       features: ['Complete channel management', 'Unlimited uploads/month', 'Full SEO & metadata', 'Comments & community management', 'Weekly analytics report', 'Dedicated account manager'] },
+    ],
+  },
+  'web-development': {
+    label: 'Web Development',
+    tiers: [
+      { name: 'Basic',    price: '$299', delivery: '7 days',   revisions: '2',         features: ['Up to 5 pages', 'Responsive design', 'Contact form', 'Basic SEO setup'] },
+      { name: 'Standard', price: '$599', delivery: '14 days',  revisions: 'Unlimited', features: ['Up to 10 pages', 'Responsive design', 'Full SEO optimization', 'Custom animations', 'Social media integration', 'Source files'] },
+      { name: 'Premium',  price: '$999', delivery: '21 days',  revisions: 'Unlimited', features: ['Unlimited pages', 'Custom design & branding', 'E-commerce ready', 'Advanced SEO & analytics', 'Speed optimization', '1 month free support'] },
+    ],
+  },
+}
+
 export const getServiceBySlug = (slug) => SERVICES.find(s => s.slug === slug)
 export const getServicesByCategory = (category) => SERVICES.filter(s => s.category === category)
