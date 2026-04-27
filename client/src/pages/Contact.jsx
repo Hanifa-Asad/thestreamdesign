@@ -4,11 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import emailjs from '@emailjs/browser'              // ← modern package (not emailjs-com)
 import {
   Send, CheckCircle, AlertCircle, Loader,
-  Mail, MessageCircle, MapPin, Clock, ChevronDown,
+  Mail, MessageCircle, Phone, MapPin, Clock, ChevronDown,
 } from 'lucide-react'
 import {
   FaFacebookF, FaInstagram, FaTwitter, FaTiktok,
-  FaDiscord, FaWhatsapp, FaYoutube,
+  FaYoutube,
 } from 'react-icons/fa'
 import { SiThreads } from 'react-icons/si'
 import GlowButton from '@components/ui/GlowButton'
@@ -24,10 +24,10 @@ const SERVICE_OPTIONS = [
   'Logo Design',
   'Stream Banners',
   'Stream Overlays',
+  'Ultimate Streamer Pack',
   'Twitch Emotes',
   'Logo & Banner (YouTube)',
   'Thumbnail Design',
-  'Reels Thumbnails',
   'Video Editing',
   'Reels Editing',
   'YouTube Management',
@@ -35,25 +35,25 @@ const SERVICE_OPTIONS = [
   'Other / Custom Package',
 ]
 
+const PLATFORM_OPTIONS = ['Twitch', 'YouTube', 'Both', 'Other']
+
 const SOCIAL_ICONS = [
   { icon: FaInstagram, href: SOCIAL_LINKS.instagram, label: 'Instagram' },
   { icon: FaFacebookF, href: SOCIAL_LINKS.facebook,  label: 'Facebook'  },
   { icon: FaTwitter,   href: SOCIAL_LINKS.twitter,   label: 'Twitter'   },
   { icon: FaTiktok,    href: SOCIAL_LINKS.tiktok,    label: 'TikTok'    },
   { icon: SiThreads,   href: SOCIAL_LINKS.threads,   label: 'Threads'   },
-  { icon: FaDiscord,   href: SOCIAL_LINKS.discord,   label: 'Discord'   },
   { icon: FaYoutube,   href: SOCIAL_LINKS.youtube,   label: 'YouTube'   },
-  { icon: FaWhatsapp,  href: SOCIAL_LINKS.whatsapp,  label: 'WhatsApp'  },
 ]
 
 const CONTACT_CARDS = [
   { icon: Mail,          label: 'Email Us',      value: CONTACT_INFO.email,    href: `mailto:${CONTACT_INFO.email}`, desc: 'We reply within 24 hours' },
-  { icon: MessageCircle, label: 'WhatsApp',      value: 'Chat with us',        href: SOCIAL_LINKS.whatsapp,          desc: 'Fastest response channel' },
+  { icon: Phone,         label: 'Call Us',       value: CONTACT_INFO.phone,    href: `tel:${CONTACT_INFO.phone.replace(/\s+/g, '')}`, desc: 'Available Mon–Sat, 9 AM – 11 PM' },
   { icon: MapPin,        label: 'Location',      value: CONTACT_INFO.location, href: null,                           desc: 'Serving creators globally' },
   { icon: Clock,         label: 'Response Time', value: '< 24 hours',          href: null,                           desc: 'Mon–Sat, 9 AM – 11 PM' },
 ]
 
-const INIT = { name: '', email: '', service: '', message: '' }
+const INIT = { name: '', email: '', platform: '', service: '', message: '' }
 
 export default function Contact() {
   const [form,    setForm]    = useState(INIT)
@@ -93,6 +93,7 @@ export default function Contact() {
     if (!data.name.trim())                       e.name    = 'Name is required'
     if (!data.email.trim())                      e.email   = 'Email is required'
     else if (!/\S+@\S+\.\S+/.test(data.email))  e.email   = 'Enter a valid email'
+    if (!data.platform)                          e.platform = 'Please select your platform'
     if (!data.service)                           e.service = 'Please select a service'
     if (!data.message.trim())                    e.message = 'Message is required'
     else if (data.message.trim().length < 10)    e.message = 'Message must be at least 10 characters'
@@ -136,6 +137,7 @@ export default function Contact() {
     const templateParams = {
       from_name:  form.name,
       from_email: form.email,
+      platform:   form.platform,
       service:    form.service,
       message:    form.message,
       to_name:    'thestreamingdesign',
@@ -214,39 +216,29 @@ export default function Contact() {
           <div className="section-container relative z-10 text-center">
             <motion.span initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
               className="inline-block font-mono text-neon-green text-xs tracking-[0.3em] uppercase mb-4">
-              // Let's Work Together
+              // Contact Us
             </motion.span>
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
               className="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-white mb-6">
-              Get In <span className="text-neon-green">Touch</span>
+              Let&apos;s Build Your <span className="text-neon-green">Brand.</span>
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
               className="font-body text-white/50 text-lg max-w-2xl mx-auto">
-              Tell us about your project. We respond within 24 hours and will put together the perfect plan for your brand.
+              Have a question or ready to get started? We&apos;d love to hear from you.
             </motion.p>
           </div>
         </section>
 
-        {/* ── Contact Cards ── */}
+        {/* ── Contact Info Block ── */}
         <section className="pb-12">
           <div className="section-container">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {CONTACT_CARDS.map(({ icon: Icon, label, value, href, desc }, i) => (
-                <motion.div key={label}
-                  initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 + i * 0.07 }}
-                  className="glass-card p-5 group">
-                  <div className="w-10 h-10 rounded-lg bg-neon-green/10 flex items-center justify-center mb-4 group-hover:bg-neon-green/20 transition-colors">
-                    <Icon size={18} className="text-neon-green" />
-                  </div>
-                  <p className="font-mono text-white/40 text-xs uppercase tracking-widest mb-1">{label}</p>
-                  {href
-                    ? <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer"
-                        className="font-display font-bold text-white text-sm hover:text-neon-green transition-colors block mb-1">{value}</a>
-                    : <p className="font-display font-bold text-white text-sm mb-1">{value}</p>
-                  }
-                  <p className="font-body text-white/30 text-xs">{desc}</p>
-                </motion.div>
-              ))}
+            <div className="glass-card p-8">
+              <p className="font-mono text-neon-green text-xs tracking-[0.3em] uppercase mb-3">// Contact Info</p>
+              <p className="font-body text-white/50 text-base leading-relaxed">
+                📧 Email: <a href="mailto:hello@thestreamingdesign.com" className="text-neon-green hover:underline">hello@thestreamdesign.com</a>
+                &nbsp; 💬 Discord: <a href="https://discord.gg/thestreamingdesign" target="_blank" rel="noreferrer" className="text-neon-green hover:underline">Join Our Server</a>
+                &nbsp; 📱 Social: <span className="text-neon-green">@thestreamingdesign</span>
+              </p>
             </div>
           </div>
         </section>
@@ -262,9 +254,9 @@ export default function Contact() {
                 <div className="glass-card p-8">
                   <div className="mb-8">
                     <span className="font-mono text-neon-green text-xs tracking-[0.3em] uppercase">// Send a Message</span>
-                    <h2 className="font-display font-black text-2xl text-white mt-2">Start Your Project</h2>
+                    <h2 className="font-display font-black text-2xl text-white mt-2">Let&apos;s Build Your Brand</h2>
                     <p className="font-body text-white/40 text-sm mt-2">
-                      Fill in your details and we will get back to you within 24 hours.
+                      Whether you need a custom stream overlay, a gaming logo design, help with your YouTube channel management, or just want to chat about your streaming goals — we&apos;re here. Fill out the form below and we&apos;ll get back to you within 24 hours.
                     </p>
                   </div>
 
@@ -316,10 +308,30 @@ export default function Contact() {
                           </div>
                         </div>
 
+                        {/* Platform select */}
+                        <div>
+                          <label className="block font-mono text-white/40 text-xs uppercase tracking-widest mb-2">
+                            Platform *
+                          </label>
+                          <div className="relative">
+                            <select name="platform" value={form.platform}
+                              onChange={handleChange} onBlur={handleBlur}
+                              className={`${inputCls('platform')} appearance-none pr-10 cursor-pointer`}>
+                              <option value="" disabled>Select your platform...</option>
+                              {PLATFORM_OPTIONS.map(option => (
+                                <option key={option} value={option}>{option}</option>
+                              ))}
+                            </select>
+                            <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none" />
+                          </div>
+                          {errors.platform && touched.platform &&
+                            <p className="mt-1.5 font-mono text-red-400 text-xs">{errors.platform}</p>}
+                        </div>
+
                         {/* Service select */}
                         <div>
                           <label className="block font-mono text-white/40 text-xs uppercase tracking-widest mb-2">
-                            Service Interested In *
+                            Service You&apos;re Interested In *
                           </label>
                           <div className="relative">
                             <select name="service" value={form.service}
@@ -345,12 +357,12 @@ export default function Contact() {
                         {/* Message */}
                         <div>
                           <label className="block font-mono text-white/40 text-xs uppercase tracking-widest mb-2">
-                            Your Message *
+                            Tell Us About Your Channel / Brand *
                           </label>
                           <textarea name="message" value={form.message}
                             onChange={handleChange} onBlur={handleBlur}
                             rows={5}
-                            placeholder="Tell us about your project, style preferences, deadline..."
+                            placeholder="Tell us about your channel, brand, goals, and what you want to build."
                             className={`${inputCls('message')} resize-none`} />
                           <div className="flex items-center justify-between mt-1.5">
                             {errors.message && touched.message
@@ -379,7 +391,7 @@ export default function Contact() {
                           </motion.div>
                         )}
 
-                        {/* Submit + WhatsApp */}
+                        {/* Submit + Contact Options */}
                         <div className="flex flex-col sm:flex-row gap-4 pt-2">
                           <GlowButton
                             type="submit"
@@ -394,11 +406,11 @@ export default function Contact() {
                             {status === 'loading' ? 'Sending...' : 'Send Message'}
                           </GlowButton>
                           <GlowButton
-                            as="a" href={SOCIAL_LINKS.whatsapp}
+                            as="a" href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, '')}`}
                             variant="outline" size="lg"
-                            icon={<MessageCircle size={16} />}
+                            icon={<Phone size={16} />}
                           >
-                            WhatsApp
+                            Call Us
                           </GlowButton>
                         </div>
 
@@ -430,23 +442,22 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* WhatsApp CTA */}
+                {/* Contact CTA */}
                 <div className="glass-card p-7 border-neon-green/25 bg-neon-green/5">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-full bg-neon-green/20 flex items-center justify-center">
-                      <FaWhatsapp size={20} className="text-neon-green" />
+                      <Phone size={20} className="text-neon-green" />
                     </div>
                     <div>
                       <h4 className="font-display font-bold text-white text-sm">Need a Fast Answer?</h4>
-                      <p className="font-body text-white/40 text-xs">Chat directly on WhatsApp</p>
+                      <p className="font-body text-white/40 text-xs">Call or email us today</p>
                     </div>
                   </div>
                   <p className="font-body text-white/50 text-sm leading-relaxed mb-5">
-                    WhatsApp is our fastest channel — typical response under 2 hours.
+                    Reach out by phone or email for the quickest response.
                   </p>
-                  <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer"
-                    className="btn-neon w-full text-center block text-xs py-3">
-                    Open WhatsApp Chat
+                  <a href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, '')}`} className="btn-neon w-full text-center block text-xs py-3">
+                    Call Now
                   </a>
                 </div>
 
@@ -456,7 +467,7 @@ export default function Contact() {
                   <h3 className="font-display font-black text-xl text-white mt-2 mb-6">Our Process</h3>
                   <ol className="space-y-5">
                     {[
-                      { step: '01', title: 'You reach out',  desc: 'Fill the form or message us on WhatsApp.' },
+                      { step: '01', title: 'You reach out',  desc: 'Fill the form or contact us by email or phone.' },
                       { step: '02', title: 'We brief you',   desc: 'Quick questionnaire to nail your style.' },
                       { step: '03', title: 'We design',      desc: 'Our team works — you get updates.' },
                       { step: '04', title: 'You approve',    desc: 'Review, revise, approve. Files delivered instantly.' },

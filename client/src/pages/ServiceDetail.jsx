@@ -124,10 +124,10 @@ export default function ServiceDetail() {
                 {/* CTAs */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-col sm:flex-row gap-4">
                   <GlowButton as="link" to="/contact" size="lg" iconRight={<ArrowRight size={16} />}>
-                    Order Now
+                    {service.ctaText || 'Order Now'}
                   </GlowButton>
-                  <GlowButton as="a" href={SOCIAL_LINKS.whatsapp} variant="outline" size="lg" icon={<MessageCircle size={16} />}>
-                    Ask on WhatsApp
+                  <GlowButton as="a" href="mailto:info@thestreamingdesign.com" variant="outline" size="lg" icon={<MessageCircle size={16} />}>
+                    Email Us
                   </GlowButton>
                 </motion.div>
               </div>

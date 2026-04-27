@@ -1,21 +1,62 @@
-import { useState, useMemo } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Clock, Tag } from 'lucide-react'
 import CTASection from '@components/sections/CTASection'
-import { BLOG_POSTS } from '@utils/blogData'
+import { getStaticBlogPosts } from '@utils/blogData'
+import { isCmsEnabled, fetchCmsPosts } from '@utils/contentfulClient'
 
-const ALL_CATEGORIES = ['All', ...Array.from(new Set(BLOG_POSTS.map(p => p.category)))]
+const getCategories = (posts) => ['All', ...Array.from(new Set(posts.map(p => p.category)))]
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('All')
+  const [posts, setPosts] = useState(getStaticBlogPosts())
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  const ALL_CATEGORIES = getCategories(posts)
+
+  const mergePosts = (cmsPosts) => {
+    const result = [...getStaticBlogPosts(), ...cmsPosts]
+    const uniquePosts = new Map()
+
+    result.forEach((post) => {
+      if (!post?.slug) return
+      if (!uniquePosts.has(post.slug)) {
+        uniquePosts.set(post.slug, post)
+      }
+    })
+
+    return Array.from(uniquePosts.values())
+  }
+
+  useEffect(() => {
+    if (!isCmsEnabled()) return
+
+    setLoading(true)
+    fetchCmsPosts()
+      .then((cmsPosts) => {
+        if (cmsPosts.length) {
+          setPosts(mergePosts(cmsPosts))
+        } else {
+          setPosts(getStaticBlogPosts())
+        }
+        setActiveCategory('All')
+      })
+      .catch((err) => {
+        console.warn('[Blog] CMS fetch failed, using static posts.', err)
+        setPosts(getStaticBlogPosts())
+        setError(err?.message || 'Unable to load fresh posts right now. Showing latest saved content.')
+      })
+      .finally(() => setLoading(false))
+  }, [])
 
   const filtered = useMemo(() =>
     activeCategory === 'All'
-      ? BLOG_POSTS
-      : BLOG_POSTS.filter(p => p.category === activeCategory),
-    [activeCategory]
+      ? posts
+      : posts.filter(p => p.category === activeCategory),
+    [activeCategory, posts]
   )
 
   return (
@@ -56,6 +97,11 @@ export default function Blog() {
               className="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-white mb-6">
               Blog &amp; <span style={{ color: '#39FF14', textShadow: '0 0 30px rgba(57,255,20,0.5)' }}>Posts</span>
             </motion.h1>
+            {error && (
+              <div className="mx-auto mb-5 max-w-2xl rounded-lg border border-red-500/30 bg-red-500/10 p-4 text-red-200 text-sm">
+                {error}
+              </div>
+            )}
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
               className="font-body text-white/50 text-lg max-w-2xl mx-auto">
               Streaming tips, design insights, YouTube growth strategies, and creator resources — all free.
@@ -68,7 +114,7 @@ export default function Blog() {
           style={{ background: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(20px)', borderColor: 'rgba(255,255,255,0.05)' }}>
           <div className="section-container flex items-center gap-2 overflow-x-auto pb-1">
             {ALL_CATEGORIES.map(cat => {
-              const count = cat === 'All' ? BLOG_POSTS.length : BLOG_POSTS.filter(p => p.category === cat).length
+              const count = cat === 'All' ? posts.length : posts.filter(p => p.category === cat).length
               const isActive = activeCategory === cat
               return (
                 <button key={cat} onClick={() => setActiveCategory(cat)}

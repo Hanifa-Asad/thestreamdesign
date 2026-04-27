@@ -1,43 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 
-// ── Minecraft pixel sword cursor ────────────────────────────────────────────
-// SVG encoded as a data URI — no external image needed, works offline.
-// The sword is pixel-art style, 24×24 units, rendered at 28px for sharpness.
-// It's rotated 45° (tip top-right) which is the classic Minecraft sword stance.
-const SWORD_SVG = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" shape-rendering="crispEdges">
-  <!-- blade -->
-  <rect x="14" y="0"  width="2" height="2" fill="#e0e0e0"/>
-  <rect x="12" y="2"  width="2" height="2" fill="#e0e0e0"/>
-  <rect x="10" y="4"  width="2" height="2" fill="#e0e0e0"/>
-  <rect x="8"  y="6"  width="2" height="2" fill="#e0e0e0"/>
-  <rect x="6"  y="8"  width="2" height="2" fill="#e0e0e0"/>
-  <rect x="4"  y="10" width="2" height="2" fill="#e0e0e0"/>
-  <!-- blade shine -->
-  <rect x="15" y="1"  width="1" height="1" fill="#ffffff"/>
-  <rect x="13" y="3"  width="1" height="1" fill="#ffffff"/>
-  <rect x="11" y="5"  width="1" height="1" fill="#ffffff"/>
-  <!-- blade shadow -->
-  <rect x="13" y="1"  width="1" height="1" fill="#b0b0b0"/>
-  <rect x="11" y="3"  width="1" height="1" fill="#b0b0b0"/>
-  <rect x="9"  y="5"  width="1" height="1" fill="#b0b0b0"/>
-  <!-- guard -->
-  <rect x="2"  y="10" width="2" height="2" fill="#8B6914"/>
-  <rect x="4"  y="8"  width="2" height="2" fill="#8B6914"/>
-  <rect x="4"  y="12" width="2" height="2" fill="#8B6914"/>
-  <rect x="6"  y="10" width="2" height="2" fill="#6B4F10"/>
-  <!-- handle -->
-  <rect x="2"  y="12" width="2" height="2" fill="#7B3F00"/>
-  <rect x="0"  y="14" width="2" height="2" fill="#7B3F00"/>
-  <rect x="2"  y="14" width="2" height="2" fill="#5C2E00"/>
-  <!-- pommel -->
-  <rect x="0"  y="16" width="2" height="2" fill="#8B6914"/>
-  <!-- neon glow accent on blade tip -->
-  <rect x="14" y="0"  width="2" height="2" fill="#39FF14" opacity="0.5"/>
-</svg>
-`
-
-const SWORD_DATA_URI = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(SWORD_SVG)}`
+// ── Custom pointer image cursor ────────────────────────────────────────
+// Uses a local public asset for the pointer image so the cursor loads reliably.
+// Replace client/public/cursor.png with your custom pointer file.
+const CURSOR_IMAGE_URL = '/cursor.png'
+const CURSOR_SIZE = 46
 
 export default function CustomCursor() {
   const cursorRef  = useRef(null)
@@ -70,20 +37,27 @@ export default function CustomCursor() {
     }
 
     const tick = () => {
-      // Ring lerps behind sword
+      const elapsed = performance.now() / 700
+      const floatX = Math.sin(elapsed) * 1.2
+      const floatY = Math.cos(elapsed * 1.1) * 1.4
+      const twist  = hoveredRef.current ? 3 : 0
+
       lagged.current.x += (mouse.current.x - lagged.current.x) * 0.12
       lagged.current.y += (mouse.current.y - lagged.current.y) * 0.12
-      const h = hoveredRef.current
-      const ringR = h ? 22 : 16
+      const ringR = hoveredRef.current ? 22 : 16
 
-      if (cursorRef.current)
-        // Offset so sword tip = cursor hotspot (top-left of SVG)
-        cursorRef.current.style.transform = `translate3d(${mouse.current.x - 2}px,${mouse.current.y - 2}px,0)`
-      if (ringRef.current)
+      if (cursorRef.current) {
+        const pointerX = mouse.current.x - CURSOR_SIZE / 2 + floatX
+        const pointerY = mouse.current.y + floatY
+        cursorRef.current.style.transform = `translate3d(${pointerX}px,${pointerY}px,0) rotate(${twist + Math.sin(elapsed * 1.3) * 2}deg)`
+      }
+      if (ringRef.current) {
         ringRef.current.style.transform = `translate3d(${lagged.current.x - ringR}px,${lagged.current.y - ringR}px,0)`
+      }
 
       raf.current = requestAnimationFrame(tick)
     }
+
     raf.current = requestAnimationFrame(tick)
     document.documentElement.style.cursor = 'none'
 
@@ -98,47 +72,39 @@ export default function CustomCursor() {
       window.removeEventListener('mouseover', onOver)
       window.removeEventListener('mouseout', onOut)
     }
-  }, [])
+  }, [visible])
 
   if (isTouch) return null
 
   return (
     <>
-      {/* Pixel sword cursor */}
       <div
         ref={cursorRef}
         aria-hidden="true"
         style={{
           position: 'fixed', top: 0, left: 0,
           zIndex: 99999, pointerEvents: 'none', willChange: 'transform',
-          opacity: visible ? 1 : 0, transition: 'opacity 0.3s',
-          width: 28, height: 28,
-          backgroundImage: `url("${SWORD_DATA_URI}")`,
-          backgroundSize: '28px 28px',
+          opacity: visible ? 1 : 0,
+          transition: 'opacity 0.25s ease-out',
+          width: CURSOR_SIZE,
+          height: CURSOR_SIZE,
+          backgroundImage: `url("${CURSOR_IMAGE_URL}")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          imageRendering: 'pixelated',
-          filter: hovered
-            ? 'drop-shadow(0 0 6px rgba(57,255,20,0.9)) drop-shadow(0 0 12px rgba(57,255,20,0.5)) brightness(1.2)'
-            : 'drop-shadow(0 0 4px rgba(57,255,20,0.5)) drop-shadow(0 0 8px rgba(57,255,20,0.2))',
-          transition: 'filter 0.2s, opacity 0.3s',
+          filter: 'none',
         }}
       />
 
-      {/* Subtle neon ring that lags behind */}
       <div
         ref={ringRef}
         aria-hidden="true"
         style={{
           position: 'fixed', top: 0, left: 0,
           zIndex: 99998, pointerEvents: 'none', willChange: 'transform',
-          opacity: visible ? (hovered ? 0.7 : 0.35) : 0,
-          width: hovered ? 44 : 32,
-          height: hovered ? 44 : 32,
-          borderRadius: '50%',
-          border: `1px solid rgba(57,255,20,${hovered ? 0.8 : 0.4})`,
-          background: hovered ? 'rgba(57,255,20,0.05)' : 'transparent',
-          transition: 'width 0.2s, height 0.2s, opacity 0.25s, border-color 0.2s',
-          boxShadow: hovered ? '0 0 12px rgba(57,255,20,0.3)' : 'none',
+          opacity: 0,
+          width: 0,
+          height: 0,
         }}
       />
     </>

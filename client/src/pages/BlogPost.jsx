@@ -1,15 +1,41 @@
+import { useEffect, useState } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Clock, Calendar, ArrowRight, ChevronRight } from 'lucide-react'
-import { getBlogPost, getRelatedPosts } from '@utils/blogData'
+import { getStaticBlogPosts, getRelatedPosts } from '@utils/blogData'
+import { isCmsEnabled, fetchCmsPostBySlug } from '@utils/contentfulClient'
 import CTASection from '@components/sections/CTASection'
 
 export default function BlogPost() {
   const { slug } = useParams()
-  const post = getBlogPost(slug)
+  const [post, setPost] = useState(() => getStaticBlogPosts().find(p => p.slug === slug))
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  if (!post) return <Navigate to="/blog" replace />
+  useEffect(() => {
+    if (!slug) return
+    if (!isCmsEnabled()) return
+
+    setLoading(true)
+    fetchCmsPostBySlug(slug)
+      .then((cmsPost) => {
+        if (cmsPost) {
+          setPost(cmsPost)
+        } else {
+          setError('This post is not available yet.')
+        }
+      })
+      .catch((err) => {
+        console.warn('[BlogPost] CMS fetch failed, using static post.', err)
+        setError('Unable to load fresh post content right now.')
+      })
+      .finally(() => setLoading(false))
+  }, [slug])
+
+  if (!post && !loading) {
+    return <Navigate to="/blog" replace />
+  }
 
   const related = getRelatedPosts(slug, 3)
 

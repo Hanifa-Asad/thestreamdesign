@@ -11,60 +11,84 @@ import { SERVICES, SERVICE_CATEGORIES } from '@utils/servicesData'
    Each service has Basic / Standard / Premium tiers.
 ─────────────────────────────────────────────────────────────────────────────*/
 const PRICING_DATA = {
-  'logo-design': {
-    label: 'Logo Design',
+  'gaming-logo-esports-design': {
+    label: 'Gaming Logo & Esports Design',
     tiers: [
-      { name: 'Basic',    price: '$--', delivery: '5 days',  revisions: '2',         features: ['1 concept', 'PNG transparent', 'Black & white version', 'Basic brief'] },
-      { name: 'Standard', price: '$--', delivery: '3 days',  revisions: 'Unlimited', features: ['3 concepts', 'PNG + SVG', 'Color variations', 'Source file (PSD/AI)', 'Brand color guide'] },
-      { name: 'Premium',  price: '$--', delivery: '24 hrs',  revisions: 'Unlimited', features: ['5 concepts', 'All file formats', 'Full brand kit', 'Social media sizes', 'Commercial license', 'Priority support'] },
+      { name: 'Basic',    price: '$50',  delivery: '5 days',  revisions: '2',         features: ['1 logo concept', 'PNG export', '2 revisions', '5 day delivery'] },
+      { name: 'Standard', price: '$100', delivery: '3 days',  revisions: 'Unlimited', features: ['3 logo concepts', 'PNG + SVG export', 'Unlimited revisions', '3 day delivery', 'Source files'] },
+      { name: 'Premium',  price: '$150', delivery: '24 hrs',  revisions: 'Unlimited', features: ['5 logo concepts', 'All file formats', 'Unlimited revisions', '24h delivery', 'Source files', 'Brand guide'] },
     ],
   },
   'stream-banners': {
     label: 'Stream Banners',
     tiers: [
-      { name: 'Basic',    price: '$--', delivery: '4 days',  revisions: '2',         features: ['1 banner', 'Twitch size', 'PNG export', 'Basic design'] },
-      { name: 'Standard', price: '$--', delivery: '2 days',  revisions: 'Unlimited', features: ['2 banners', 'Twitch + YouTube sizes', 'PNG + PSD', 'Custom typography'] },
-      { name: 'Premium',  price: '$--', delivery: '24 hrs',  revisions: 'Unlimited', features: ['3 banners', 'All platform sizes', 'Animated version', 'Full social kit', 'Brand matching'] },
+      { name: 'Basic',    price: '$30',  delivery: '4 days',  revisions: '2',         features: ['1 banner design', 'YouTube banner', 'PNG export', '2 revisions', '4 day delivery'] },
+      { name: 'Standard', price: '$65',  delivery: '2 days',  revisions: 'Unlimited', features: ['3 banner designs', 'YouTube + Twitch banners', 'PNG + PSD export', 'Unlimited revisions', '2 day delivery', 'Source files'] },
+      { name: 'Premium',  price: '$120', delivery: '24 hrs',  revisions: 'Unlimited', features: ['Full banner pack', 'All platforms covered', 'All file formats', 'Unlimited revisions', '24h delivery', 'Source files'] },
     ],
   },
-  'stream-overlays': {
-    label: 'Stream Overlays',
+  'streaming-twitch-design': {
+    label: 'Streaming & Twitch Design',
     tiers: [
-      { name: 'Basic',    price: '$--', delivery: '7 days',  revisions: '2',         features: ['Starting screen', 'Webcam frame', 'Basic alerts', 'OBS compatible'] },
-      { name: 'Standard', price: '$--', delivery: '5 days',  revisions: 'Unlimited', features: ['Full overlay pack', 'Animated alerts', 'BRB + Ending screens', 'Chat overlay', 'Setup guide'] },
-      { name: 'Premium',  price: '$--', delivery: '3 days',  revisions: 'Unlimited', features: ['Full animated pack', 'All screens & panels', 'Custom transitions', 'Scene collection file', 'Installation support'] },
+      { name: 'Basic',    price: '$75',  delivery: '3 days',  revisions: '2',         features: ['Static overlay package', 'Main gaming panel', 'PNG export', '2 revisions', '3 day delivery'] },
+      { name: 'Standard', price: '$150', delivery: '1 week', revisions: 'Unlimited', features: ['Animated overlay package', 'Main gaming panel', 'Starting soon panel', 'Stream ending panel', 'Animated alerts', 'Source files included'] },
+      { name: 'Premium',  price: '$300', delivery: '2-3 weeks', revisions: 'Unlimited', features: ['Full animated pack', 'Main gaming panel', 'Animated cam overlay', 'Starting soon + ending panels', 'Scene transitions', 'Custom emotes'] },
     ],
   },
   'twitch-emotes': {
     label: 'Twitch Emotes',
     tiers: [
-      { name: 'Basic',    price: '$--', delivery: '5 days',  revisions: '2',         features: ['3 emotes', 'All Twitch sizes', 'PNG transparent', 'Simple style'] },
-      { name: 'Standard', price: '$--', delivery: '3 days',  revisions: 'Unlimited', features: ['5 emotes', 'All sizes + sub badges', 'Detailed style', 'Source files'] },
-      { name: 'Premium',  price: '$--', delivery: '2 days',  revisions: 'Unlimited', features: ['10 emotes', 'Sub badges (6 levels)', 'Channel points icon', 'Panel icons', 'Source files'] },
+      { name: 'Basic',    price: '$35',  delivery: '3 days',  revisions: '2',         features: ['3 custom static emotes', 'Twitch-ready sizing', 'PNG export (all sizes)', '2 revisions', '3 day delivery'] },
+      { name: 'Standard', price: '$75',  delivery: '1 week', revisions: 'Unlimited', features: ['5 custom emotes', '3 static + 2 animated', 'Twitch + YouTube ready', 'PNG + GIF export', 'Source files included'] },
+      { name: 'Premium',  price: '$150', delivery: '2-3 weeks', revisions: 'Unlimited', features: ['10 fully animated emotes', 'All platforms supported', 'PNG + GIF + APNG export', 'Sub badge set included', 'Commercial use rights'] },
     ],
   },
   'thumbnail-design': {
     label: 'Thumbnail Design',
     tiers: [
-      { name: 'Basic',    price: '$--', delivery: '2 days',  revisions: '2',         features: ['1 thumbnail', '1280×720px', 'Text overlay', 'PNG export'] },
-      { name: 'Standard', price: '$--', delivery: '24 hrs',  revisions: 'Unlimited', features: ['1 thumbnail', 'A/B variant', 'Face cutout', 'Custom bg', 'PSD source'] },
-      { name: 'Premium',  price: '$--', delivery: '12 hrs',  revisions: 'Unlimited', features: ['3 thumbnails', 'A/B each', 'Advanced compositing', 'Batch discount', 'Priority queue'] },
+      { name: 'Basic',    price: '$15',  delivery: '3 days',  revisions: '2',         features: ['1 thumbnail design', '1920×1080 PNG export', 'Custom text & colors', '2 revisions'] },
+      { name: 'Standard', price: '$35',  delivery: '2 days',  revisions: 'Unlimited', features: ['3 thumbnail designs', '1920×1080 PNG + PSD', 'Custom graphics & effects', 'Source files included'] },
+      { name: 'Premium',  price: '$60',  delivery: '24 hrs',  revisions: 'Unlimited', features: ['5 thumbnail designs', 'All file formats', 'Advanced photo editing', 'Thumbnail style guide'] },
     ],
   },
-  'video-editing': {
-    label: 'Video Editing',
+  'video-editing-for-streamers': {
+    label: 'Video Editing for Streamers',
     tiers: [
-      { name: 'Basic',    price: '$--', delivery: '5 days',  revisions: '1',         features: ['Up to 10 min', 'Jump cuts', 'Color correction', 'Background music', 'MP4 1080p'] },
-      { name: 'Standard', price: '$--', delivery: '3 days',  revisions: '2',         features: ['Up to 20 min', 'Motion graphics', 'Custom intro/outro', 'Captions', 'SFX'] },
-      { name: 'Premium',  price: '$--', delivery: '2 days',  revisions: 'Unlimited', features: ['Up to 40 min', 'Advanced effects', 'Thumbnail included', 'Project file', 'Express delivery'] },
+      { name: 'Basic',    price: '$80',  delivery: '4 days',  revisions: '2',         features: ['Up to 10 min video', 'Cuts & transitions', 'Background music', 'Basic color correction'] },
+      { name: 'Standard', price: '$180', delivery: '3 days',  revisions: 'Unlimited', features: ['Up to 25 min video', 'Cuts, transitions & effects', 'Sound design & music', 'Color grading', 'Subtitles & captions'] },
+      { name: 'Premium',  price: '$320', delivery: '24-48 hrs', revisions: 'Unlimited', features: ['Up to 60 min video', 'Advanced motion graphics', 'Custom intro & outro', 'Pro color grading', 'Sound design & mixing'] },
+    ],
+  },
+  'reels-editing': {
+    label: 'Reels Editing',
+    tiers: [
+      { name: 'Basic',    price: '$40',  delivery: '3 days',  revisions: '2',         features: ['Up to 60 sec reel', 'Cuts & transitions', 'Background music sync', 'Basic text & captions', '9:16 vertical export'] },
+      { name: 'Standard', price: '$90',  delivery: '2 days',  revisions: 'Unlimited', features: ['3 reels bundle up to 90 sec', 'Trendy transitions & effects', 'Beat-synced music', 'Animated captions', '9:16 + 1:1 exports'] },
+      { name: 'Premium',  price: '$160', delivery: '24 hrs',  revisions: 'Unlimited', features: ['5 reels up to 3 min', 'Advanced motion graphics', 'Custom animated text', 'Pro color grading', 'Sound design & mixing'] },
+    ],
+  },
+  'twitch-channel-setup-optimization': {
+    label: 'Twitch Channel Setup & Optimization',
+    tiers: [
+      { name: 'Basic',    price: '$120', delivery: '5 days',  revisions: '2',         features: ['Channel setup checklist', 'Panel + bio setup', 'Overlay installation guidance', 'Initial optimization review'] },
+      { name: 'Standard', price: '$240', delivery: '1 week',  revisions: 'Unlimited', features: ['Full channel setup', 'SEO & discoverability optimization', 'Design refresh', 'Alert + panel config', 'Growth recommendations'] },
+      { name: 'Premium',  price: '$420', delivery: '1-2 weeks', revisions: 'Unlimited', features: ['Ongoing channel optimization', 'Custom overlay install', 'Brand coherence across Twitch', 'Growth support plan', 'Priority turnaround'] },
+    ],
+  },
+  'youtube-channel-management-growth': {
+    label: 'YouTube Channel Management & Growth',
+    tiers: [
+      { name: 'Basic',    price: '$150', delivery: 'Monthly',  revisions: 'N/A',       features: ['Channel SEO optimization', '4 videos uploaded/month', 'Title & description writing', 'Tags & keywords research', 'Monthly analytics report'] },
+      { name: 'Standard', price: '$300', delivery: 'Monthly',  revisions: 'N/A',       features: ['Full channel SEO', '8 videos uploaded/month', 'Title, description & tags', 'Thumbnail scheduling', 'Community management', 'Bi-weekly analytics report'] },
+      { name: 'Premium',  price: '$500', delivery: 'Monthly',  revisions: 'N/A',       features: ['Complete channel management', 'Unlimited uploads/month', 'Full SEO & metadata', 'Comments & community management', 'Weekly analytics report', 'Dedicated account manager'] },
     ],
   },
   'web-development': {
     label: 'Web Development',
     tiers: [
-      { name: 'Basic',    price: '$--', delivery: '10 days', revisions: '2',         features: ['5 pages', 'Responsive design', 'Contact form', 'Mobile optimized', 'Basic SEO'] },
-      { name: 'Standard', price: '$--', delivery: '14 days', revisions: 'Unlimited', features: ['10 pages', 'CMS included', 'Email integration', 'Social links', 'Analytics setup', 'SSL certificate'] },
-      { name: 'Premium',  price: '$--', delivery: '21 days', revisions: 'Unlimited', features: ['Unlimited pages', 'Custom functionality', 'Advanced CMS', 'User accounts', 'Payment processing', '3 months support'] },
+      { name: 'Basic',    price: '$299', delivery: '7 days',   revisions: '2',         features: ['Up to 5 pages', 'Responsive design', 'Contact form', 'Basic SEO setup'] },
+      { name: 'Standard', price: '$599', delivery: '14 days',  revisions: 'Unlimited', features: ['Up to 10 pages', 'Responsive design', 'Full SEO optimization', 'Custom animations', 'Social media integration', 'Source files'] },
+      { name: 'Premium',  price: '$999', delivery: '21 days',  revisions: 'Unlimited', features: ['Unlimited pages', 'Custom design & branding', 'E-commerce ready', 'Advanced SEO & analytics', 'Speed optimization', '1 month free support'] },
     ],
   },
 }
@@ -126,26 +150,25 @@ export default function Pricing() {
           <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
           <div className="section-container relative z-10 text-center">
             <motion.span initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="inline-block font-mono text-neon-green text-xs tracking-[0.3em] uppercase mb-4">
-              // No Hidden Fees
+              // Simple, Honest Pricing
             </motion.span>
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-white mb-6">
-              Simple <span className="text-neon-green">Pricing</span>
+              Simple, Honest <span className="text-neon-green">Pricing</span>.
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body text-white/50 text-lg max-w-2xl mx-auto">
-              Every service has three tiers. Pick what fits your budget and goals.
-              Upgrade anytime, no contracts, full ownership of all files.
+              No hidden fees. No confusing packages. Just great work at fair prices.
             </motion.p>
           </div>
         </section>
 
         {/* ── Category Tabs ── */}
         <div className="sticky top-16 md:top-20 z-30 bg-dark-100/95 backdrop-blur-md border-b border-glass-border py-4">
-          <div className="section-container flex items-center gap-3">
+          <div className="section-container flex flex-wrap items-center gap-3 overflow-x-auto pb-1">
             {CATEGORY_TABS.map(tab => (
               <button
                 key={tab.id}
                 onClick={() => setActiveCategory(tab.id)}
-                className={`px-6 py-2.5 rounded-lg font-display text-xs font-bold tracking-widest uppercase transition-all duration-200 ${
+                className={`min-w-max px-6 py-2.5 rounded-lg font-display text-xs font-bold tracking-widest uppercase transition-all duration-200 ${
                   activeCategory === tab.id
                     ? 'bg-neon-green text-black shadow-neon'
                     : 'text-white/50 border border-white/10 hover:border-white/30 hover:text-white'
@@ -183,12 +206,12 @@ export default function Pricing() {
                       transition={{ duration: 0.5, delay: si * 0.05 }}
                     >
                       {/* Service heading */}
-                      <div className="flex items-center gap-4 mb-8">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
                         <div className="w-10 h-10 rounded-xl bg-neon-green/10 border border-neon-green/20 flex items-center justify-center flex-shrink-0">
                           <service.icon size={18} className="text-neon-green" />
                         </div>
-                        <div className="flex items-center gap-4 flex-1">
-                          <h2 className="font-display font-black text-xl text-white tracking-wide whitespace-nowrap">
+                        <div className="flex items-center gap-4 flex-1 min-w-0">
+                          <h2 className="font-display font-black text-xl text-white tracking-wide truncate">
                             {data.label}
                           </h2>
                           <div className="flex-1 h-px bg-gradient-to-r from-neon-green/30 to-transparent" />
@@ -196,7 +219,7 @@ export default function Pricing() {
                       </div>
 
                       {/* Three tier cards */}
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                      <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
                         {data.tiers.map((tier, ti) => {
                           const style = TIER_COLORS[tier.name]
                           const isPopular = tier.name === 'Standard'
@@ -279,6 +302,35 @@ export default function Pricing() {
           </div>
         </section>
 
+        {/* ── Add-Ons ── */}
+        <section className="py-16">
+          <div className="section-container">
+            <div className="text-center mb-10">
+              <span className="font-mono text-neon-green text-xs tracking-[0.3em] uppercase">// Add-Ons</span>
+              <h2 className="font-display font-black text-3xl text-white mt-3">Design Add-Ons for Every Channel</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {[
+                'Extra thumbnail',
+                'Twitch mascot logo',
+                'Extra video edit',
+                'Rush delivery',
+                'Premade twitch overlays',
+              ].map(item => (
+                <div key={item} className="rounded-2xl border border-white/10 bg-dark-300/60 p-6 flex flex-col justify-between h-full">
+                  <div>
+                    <h3 className="font-display font-black text-lg text-white mb-3">{item}</h3>
+                    <p className="font-body text-white/50 text-sm leading-relaxed">Contact us to add this extra service to your project and keep your channel growing without the stress.</p>
+                  </div>
+                  <GlowButton as="link" to="/contact" variant="outline" className="mt-6 justify-center text-xs">
+                    Contact
+                  </GlowButton>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── Compare All Features table ── */}
         <section className="py-16 bg-dark-200/30">
           <div className="section-container">
@@ -286,8 +338,8 @@ export default function Pricing() {
               <span className="font-mono text-neon-green text-xs tracking-[0.3em] uppercase">// Plan Comparison</span>
               <h2 className="font-display font-black text-3xl text-white mt-3">What's In Each Plan</h2>
             </div>
-            <div className="max-w-3xl mx-auto overflow-x-auto">
-              <table className="w-full">
+            <div className="max-w-3xl mx-auto overflow-x-auto -mx-4 px-4 sm:-mx-0 sm:px-0">
+              <table className="min-w-[680px] w-full">
                 <thead>
                   <tr>
                     <th className="text-left py-4 px-4 font-mono text-white/30 text-xs uppercase tracking-widest w-1/2">Feature</th>
@@ -370,7 +422,13 @@ export default function Pricing() {
           </div>
         </section>
 
-        <CTASection />
+        <CTASection
+          label="// Custom Quote"
+          heading="Not Sure Which Plan Fits You?"
+          body="Every channel is different. Let's talk and find the right fit."
+          primaryText="Get a Custom Quote"
+          primaryLink="/contact"
+        />
       </motion.div>
     </>
   )

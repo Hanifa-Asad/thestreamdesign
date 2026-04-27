@@ -39,18 +39,24 @@ export function validateEmailJSConfig() {
 
 // ─── Social links ─── replace '#' with real URLs
 export const SOCIAL_LINKS = {
-  facebook:  '#',
-  instagram: '#',
-  twitter:   '#',
-  tiktok:    '#',
-  threads:   '#',
-  discord:   '#',
-  whatsapp:  '#',  // e.g. https://wa.me/923001234567
-  youtube:   '#',
+  instagram: 'https://www.instagram.com/thestreamingdesigns/',
+  threads:   'https://www.threads.com/@thestreamingdesigns',
+  facebook:  'https://www.facebook.com/TheStreamingDesign',
+  tiktok:    'https://www.tiktok.com/@thestreamingdesign',
+  twitter:   'https://x.com/streamingdesign',
+  linkedin:  'https://www.linkedin.com/company/thestreamingdesign',
+  trustpilot:'https://www.trustpilot.com/review/thestreamingdesign.com',
+  youtube:   'https://www.youtube.com/@TheStreamingDesign',
+  kick:      'https://kick.com/thestreamingdesign',
+  twitch:    'https://www.twitch.tv/thestreamingdesign',
+  patreon:   'https://patreon.com/TheStreamingDesign',
+  behance:   'https://www.behance.net/streamingdesign',
+  dribbble:  'https://dribbble.com/streaming-design',
+  pinterest: 'https://www.pinterest.com/thestreamingdesign/',
 }
 
 export const CONTACT_INFO = {
-  email:    'hello@thestreamingdesign.com',
-  whatsapp: '+1 (000) 000-0000',
+  email: 'hello@thestreamingdesign.com',
+  phone: '+1 346 857 1259',
   location: 'Remote Worldwide',
 }

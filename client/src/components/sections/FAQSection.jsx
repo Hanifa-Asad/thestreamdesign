@@ -1,37 +1,29 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Minus } from 'lucide-react'
+import GlowButton from '@components/ui/GlowButton'
 
 const FAQS = [
   {
     id: 1,
-    q: 'How much do your services cost?',
-    a: 'Pricing varies by service and plan tier (Basic, Standard, Premium). We keep all pricing transparent on our Pricing page. Basic plans start from affordable rates for smaller creators, while Premium plans include full brand packages with unlimited revisions. Contact us for a custom quote if you have specific requirements.',
+    q: 'How long does delivery take?',
+    a: 'Most design projects are done in 5–10 business days. Rush options available.',
   },
   {
     id: 2,
-    q: 'How long does delivery take?',
-    a: 'Turnaround depends on the service: logos and thumbnails are typically delivered in 1–3 business days, stream overlay packs in 3–5 business days, and video editing in 2–5 business days per video. Premium plans include priority delivery. Rush orders (24h) are available on request.',
+    q: 'Do you work with beginners?',
+    a: '100%. We love helping new streamers build their brand from day one.',
   },
   {
     id: 3,
-    q: 'How many revisions do I get?',
-    a: 'Basic plans include 2 free revisions. Standard and Premium plans include unlimited revisions — we work with you until you\'re 100% satisfied. We take your feedback seriously and don\'t close a project until you\'re happy with the result.',
+    q: 'Can I buy a premade overlay instead of custom?',
+    a: 'Yes! We offer premade twitch overlays that are ready to use in OBS instantly.',
   },
   {
     id: 4,
-    q: 'Which platforms are supported?',
-    a: 'We design for all major creator platforms: Twitch, YouTube, Instagram, TikTok, Twitter/X, Discord, and Facebook. All assets are delivered in platform-specific sizes. OBS and Streamlabs overlay packages include scene collection files for instant import.',
-  },
-  {
-    id: 5,
-    q: 'Do I own the files after delivery?',
-    a: 'Yes — 100%. You receive full commercial usage rights to everything we create. Standard and Premium plans include source files (PSD, AI, or project files). You are free to use the assets commercially, modify them, or hand them off to other editors without any licensing restrictions.',
-  },
-  {
-    id: 6,
-    q: 'How do I start a project?',
-    a: 'Fill out our contact form or message us on WhatsApp with your project idea. We\'ll send you a short brief questionnaire to understand your brand, style preferences, and requirements. Once confirmed, we start immediately and keep you updated throughout the process.',
+    q: 'Do you offer ongoing YouTube management?',
+    a: 'Absolutely — our YouTube channel management service for gamers runs on a monthly basis.',
   },
 ]
 
@@ -52,12 +44,12 @@ export default function FAQSection({ limit }) {
             initial={{ opacity: 0, y: -8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="inline-block font-mono text-xs tracking-[0.3em] uppercase mb-3"
             style={{ color: 'rgba(57,255,20,0.8)' }}>
-            // Common Questions
+            Quick Answers
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.08 }}
             className="font-display font-black text-3xl sm:text-4xl text-white">
-            Frequently Asked <span style={{ color: '#39FF14', textShadow: '0 0 20px rgba(57,255,20,0.5)' }}>Questions</span>
+            Quick Answers
           </motion.h2>
         </div>
 
@@ -122,6 +114,14 @@ export default function FAQSection({ limit }) {
               </motion.div>
             )
           })}
+        </div>
+
+        <div className="mt-14 text-center">
+          <span className="font-mono text-neon-green text-xs tracking-[0.3em] uppercase mb-4 inline-block">// Ready to Stand Out?</span>
+          <h3 className="font-display font-black text-3xl text-white mt-3 mb-5">Ready to Stand Out?</h3>
+          <GlowButton as="link" to="/contact" size="lg" iconRight={<Plus size={16} />}>
+            Get Started Today
+          </GlowButton>
         </div>
       </div>
     </section>

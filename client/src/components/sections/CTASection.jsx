@@ -5,7 +5,15 @@ import { useScrollAnimation } from '@hooks/useScrollAnimation'
 import GlowButton from '@components/ui/GlowButton'
 import { SOCIAL_LINKS } from '@utils/emailConfig'
 
-export default function CTASection() {
+export default function CTASection({
+  label = '// Ready to Level Up Your Brand?',
+  heading = 'Ready to Level Up Your Brand?',
+  body = 'Stop blending in. Start standing out.',
+  primaryText = 'Start Your Project',
+  primaryLink = '/contact',
+  secondaryText = 'Book Free Consultation',
+  secondaryHref = 'mailto:info@thestreamingdesign.com',
+}) {
   const { ref, inView } = useScrollAnimation(0.2)
 
   return (
@@ -42,35 +50,33 @@ export default function CTASection() {
         >
           {/* Label */}
           <span className="inline-block font-mono text-neon-green text-xs tracking-[0.3em] uppercase mb-5">
-            // Ready to dominate?
+            // Ready to Level Up Your Brand?
           </span>
 
-          <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl
-                         text-white leading-tight mb-6">
-            Start Your{' '}
-            <span className="text-neon-green">Project</span>{' '}
-            Today
+          <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6">
+            {heading}
           </h2>
 
           <p className="font-body text-white/50 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-            Join 200+ creators who trust thestreamingdesign to power their brand.
-            Tell us what you need — we handle the rest.
+            {body}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <GlowButton as="link" to="/contact" size="lg" iconRight={<ArrowRight size={18} />}>
-              Get a Free Quote
+            <GlowButton as="link" to={primaryLink} size="lg" iconRight={<ArrowRight size={18} />}>
+              {primaryText}
             </GlowButton>
-            <GlowButton
-              as="a"
-              href={SOCIAL_LINKS.whatsapp}
-              variant="outline"
-              size="lg"
-              icon={<MessageCircle size={16} />}
-            >
-              WhatsApp Us
-            </GlowButton>
+            {secondaryText && (
+              <GlowButton
+                as="a"
+                href={secondaryHref}
+                variant="outline"
+                size="lg"
+                icon={<MessageCircle size={16} />}
+              >
+                {secondaryText}
+              </GlowButton>
+            )}
           </div>
 
           {/* Trust line */}

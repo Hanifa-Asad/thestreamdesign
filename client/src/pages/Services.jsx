@@ -80,13 +80,13 @@ export default function Services() {
           <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
           <div className="section-container relative z-10 text-center">
             <motion.span initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="inline-block font-mono text-neon-green text-xs tracking-[0.3em] uppercase mb-4">
-              // What We Offer
+              // Everything Your Stream & Channel Needs
             </motion.span>
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-white mb-6">
-              Our <span className="text-neon-green">Services</span>
+              Everything Your <span className="text-neon-green">Stream & Channel</span> Needs.
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body text-white/50 text-lg max-w-2xl mx-auto mb-10">
-              Every service is built specifically for gaming culture. No generic work, no cookie-cutter templates — just premium assets that make your brand unforgettable.
+              Explore our full range of services built for streamers, gamers, and esports brands.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-wrap items-center justify-center gap-8">
               {[{ n: '12', label: 'Services' }, { n: '3', label: 'Categories' }, { n: '500+', label: 'Projects Done' }].map(({ n, label }) => (
@@ -155,12 +155,12 @@ export default function Services() {
           <div className="section-container">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass-card p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
               <div>
-                <p className="font-mono text-neon-green text-xs tracking-widest uppercase mb-2">// Transparent Pricing</p>
-                <h3 className="font-display font-black text-3xl text-white mb-3">See All Packages & Pricing</h3>
-                <p className="font-body text-white/50 max-w-lg">Basic, Standard, and Premium plans for every service. No hidden fees, no surprises.</p>
+                <p className="font-mono text-neon-green text-xs tracking-widest uppercase mb-2">// Not Sure Where to Start?</p>
+                <h3 className="font-display font-black text-3xl text-white mb-3">Book a free consultation and we&apos;ll tell you exactly what your channel needs.</h3>
+                <p className="font-body text-white/50 max-w-lg">One quick call gives you a clear plan for the services that will help your channel grow faster.</p>
               </div>
               <div className="flex-shrink-0">
-                <GlowButton as="link" to="/pricing" size="lg" iconRight={<ArrowRight size={16} />}>View Pricing</GlowButton>
+                <GlowButton as="link" to="/contact" size="lg" iconRight={<ArrowRight size={16} />}>Book Free Call</GlowButton>
               </div>
             </motion.div>
           </div>

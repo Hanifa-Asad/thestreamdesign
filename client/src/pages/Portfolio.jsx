@@ -6,34 +6,37 @@ import GlowButton from '@components/ui/GlowButton'
 import CTASection from '@components/sections/CTASection'
 
 const PORTFOLIO_ITEMS = [
-  { id: 1,  title: 'NeonStrike Gaming',    client: 'NeonStrike_TV',   category: 'Logo',      tags: ['Twitch', 'Esports'],    gradient: 'from-green-900 to-black'   },
-  { id: 2,  title: 'PhantomX Overlay',     client: 'PhantomXGG',      category: 'Overlay',   tags: ['Twitch', 'OBS'],        gradient: 'from-purple-900 to-black'  },
-  { id: 3,  title: 'VoidTV Channel Art',   client: 'VoidTV',          category: 'Banner',    tags: ['YouTube', 'Gaming'],    gradient: 'from-blue-900 to-black'    },
-  { id: 4,  title: 'GhostRider CTR Pack',  client: 'GhostRider',      category: 'Thumbnail', tags: ['YouTube', 'FPS'],       gradient: 'from-red-900 to-black'     },
-  { id: 5,  title: 'ShadowStream Kit',     client: 'ShadowStream',    category: 'Overlay',   tags: ['Twitch', 'Alerts'],     gradient: 'from-cyan-900 to-black'    },
-  { id: 6,  title: 'PixelKing Emotes',     client: 'PixelKingTV',     category: 'Emote',     tags: ['Twitch', 'Community'],  gradient: 'from-yellow-900 to-black'  },
-  { id: 7,  title: 'NightOwl Brand Kit',   client: 'NightOwlStreams', category: 'Logo',      tags: ['Twitch', 'Branding'],   gradient: 'from-indigo-900 to-black'  },
-  { id: 8,  title: 'TacticalAce Thumbs',   client: 'TacticalAceGG',  category: 'Thumbnail', tags: ['YouTube', 'FPS'],       gradient: 'from-orange-900 to-black'  },
-  { id: 9,  title: 'QueenRealm Overlays',  client: 'PixelQueenTV',   category: 'Overlay',   tags: ['Twitch', 'Fantasy'],    gradient: 'from-pink-900 to-black'    },
-  { id: 10, title: 'VortexGG Identity',    client: 'VortexGG',       category: 'Logo',      tags: ['Esports', 'Team'],      gradient: 'from-teal-900 to-black'    },
-  { id: 11, title: 'CryptoGamer Reels',    client: 'CryptoGamer',    category: 'Thumbnail', tags: ['YouTube', 'Shorts'],    gradient: 'from-violet-900 to-black'  },
-  { id: 12, title: 'IronFist Emote Pack',  client: 'IronFist_Twitch',category: 'Emote',     tags: ['Twitch', 'Sub badges'], gradient: 'from-slate-800 to-black'   },
+  { id: 1,  title: 'NeonStrike Gaming',       client: 'NeonStrike_TV',    category: 'Esports Design',     tags: ['Twitch', 'Esports'],      gradient: 'from-green-900 to-black'   },
+  { id: 2,  title: 'PhantomX Overlay',        client: 'PhantomXGG',       category: 'Twitch Overlays',    tags: ['Twitch', 'OBS'],          gradient: 'from-purple-900 to-black'  },
+  { id: 3,  title: 'VoidTV Channel Art',      client: 'VoidTV',           category: 'Stream Branding',     tags: ['YouTube', 'Gaming'],      gradient: 'from-blue-900 to-black'    },
+  { id: 4,  title: 'GhostRider CTR Pack',     client: 'GhostRider',       category: 'YouTube Thumbnails',  tags: ['YouTube', 'FPS'],         gradient: 'from-red-900 to-black'     },
+  { id: 5,  title: 'ShadowStream Kit',        client: 'ShadowStream',     category: 'Twitch Overlays',    tags: ['Twitch', 'Alerts'],       gradient: 'from-cyan-900 to-black'    },
+  { id: 6,  title: 'PixelKing Emotes',        client: 'PixelKingTV',      category: 'Stream Branding',     tags: ['Twitch', 'Community'],    gradient: 'from-yellow-900 to-black'  },
+  { id: 7,  title: 'NightOwl Brand Kit',      client: 'NightOwlStreams',  category: 'Stream Branding',     tags: ['Twitch', 'Branding'],     gradient: 'from-indigo-900 to-black'  },
+  { id: 8,  title: 'TacticalAce Thumbs',      client: 'TacticalAceGG',    category: 'YouTube Thumbnails',  tags: ['YouTube', 'FPS'],         gradient: 'from-orange-900 to-black'  },
+  { id: 9,  title: 'QueenRealm Overlays',     client: 'PixelQueenTV',     category: 'Twitch Overlays',    tags: ['Twitch', 'Fantasy'],      gradient: 'from-pink-900 to-black'    },
+  { id: 10, title: 'VortexGG Identity',       client: 'VortexGG',         category: 'Esports Design',     tags: ['Esports', 'Team'],        gradient: 'from-teal-900 to-black'    },
+  { id: 11, title: 'CryptoGamer Reels',       client: 'CryptoGamer',      category: 'YouTube Thumbnails',  tags: ['YouTube', 'Shorts'],      gradient: 'from-violet-900 to-black'  },
+  { id: 12, title: 'IronFist Emote Pack',     client: 'IronFist_Twitch',  category: 'Stream Branding',     tags: ['Twitch', 'Sub badges'],   gradient: 'from-slate-800 to-black'   },
+  { id: 13, title: 'RetroPixel Web Launch',    client: 'RetroPixelStudio', category: 'Stream Branding',     tags: ['Website', 'Portfolio'],   gradient: 'from-slate-900 to-black'   },
+  { id: 14, title: 'Eclipse Gamer Site',      client: 'EclipseHQ',       category: 'Stream Branding',     tags: ['Landing Page', 'UX'],    gradient: 'from-slate-800 to-black'   },
+  { id: 15, title: 'Summit Studio Website',   client: 'SummitStream',     category: 'Stream Branding',     tags: ['Site Design', 'Responsive'], gradient: 'from-cyan-950 to-black'  },
 ]
 
-const CATEGORIES = ['All', 'Logo', 'Overlay', 'Banner', 'Thumbnail', 'Emote']
+const CATEGORIES = ['All', 'Twitch Overlays', 'Gaming Logos', 'YouTube Thumbnails', 'Esports Design', 'Stream Branding']
 
 const CATEGORY_COLORS = {
-  Logo:      'bg-green-500/15 text-green-400 border-green-500/30',
-  Overlay:   'bg-purple-500/15 text-purple-400 border-purple-500/30',
-  Banner:    'bg-blue-500/15 text-blue-400 border-blue-500/30',
-  Thumbnail: 'bg-red-500/15 text-red-400 border-red-500/30',
-  Emote:     'bg-yellow-500/15 text-yellow-400 border-yellow-500/30',
+  'Twitch Overlays':   'bg-purple-500/15 text-purple-400 border-purple-500/30',
+  'Gaming Logos':      'bg-green-500/15 text-green-400 border-green-500/30',
+  'YouTube Thumbnails': 'bg-red-500/15 text-red-400 border-red-500/30',
+  'Esports Design':    'bg-teal-500/15 text-teal-400 border-teal-500/30',
+  'Stream Branding':   'bg-cyan-500/15 text-cyan-400 border-cyan-500/30',
 }
 
 const STATS = [
   { n: '500+', label: 'Projects Completed' },
   { n: '200+', label: 'Happy Clients'      },
-  { n: '5',    label: 'Categories'         },
+  { n: '6',    label: 'Categories'         },
   { n: '4.9★', label: 'Average Rating'     },
 ]
 
@@ -101,16 +104,24 @@ export default function Portfolio() {
               transition={{ delay: 0.1 }}
               className="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-white mb-6"
             >
-              Our <span className="text-neon-green">Work</span>
+              Our <span className="text-neon-green">Work</span> Speaks for Itself.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="font-body text-white/50 text-lg max-w-2xl mx-auto mb-12"
+              className="font-body text-white/50 text-lg max-w-2xl mx-auto mb-6"
             >
-              Every project here was built to make a real creator's brand unforgettable.
-              Replace placeholders with your real work as the agency grows.
+              From twitch overlay design to esports logo design — see what we've built for creators like you.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+              className="font-body text-white/60 text-lg max-w-2xl mx-auto mb-12"
+            >
+              Every project in here started with a creator who wanted to level up. We turned their vision into something real — something that gets clicks, follows, and recognition.
+              Browse our streaming graphics design, gaming graphic design, esports design, and more. Then imagine what we can do for you.
             </motion.p>
 
             {/* Stats */}
@@ -133,7 +144,7 @@ export default function Portfolio() {
         {/* ── Filter Bar ── */}
         <div className="sticky top-16 md:top-20 z-30 bg-dark-100/95 backdrop-blur-md border-b border-glass-border py-4">
           <div className="section-container">
-            <div className="flex items-center gap-2 overflow-x-auto pb-1">
+            <div className="flex flex-wrap items-center gap-3 overflow-x-auto pb-1">
               {CATEGORIES.map(cat => {
                 const count   = cat === 'All' ? PORTFOLIO_ITEMS.length : PORTFOLIO_ITEMS.filter(p => p.category === cat).length
                 const isActive = activeFilter === cat
@@ -142,11 +153,11 @@ export default function Portfolio() {
                     key={cat}
                     onClick={() => setActiveFilter(cat)}
                     className={[
-                      'flex items-center gap-2 px-5 py-2 rounded-lg font-display text-xs font-bold',
-                      'tracking-widest uppercase whitespace-nowrap transition-all duration-200 flex-shrink-0',
+                      'flex items-center gap-2 px-4 py-2 rounded-full font-display text-xs font-semibold',
+                      'tracking-[0.25em] uppercase whitespace-nowrap transition-all duration-200 flex-shrink-0',
                       isActive
-                        ? 'bg-neon-green text-black shadow-neon'
-                        : 'text-white/50 border border-white/10 hover:text-white hover:border-white/30',
+                        ? 'bg-neon-green text-black shadow-neon border border-neon-green/20'
+                        : 'text-white/50 border border-white/10 hover:text-white hover:border-white/20 bg-white/5',
                     ].join(' ')}
                   >
                     {cat}
@@ -170,18 +181,18 @@ export default function Portfolio() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+                className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
               >
                 {filtered.map((item, idx) => (
                   <motion.div
                     key={item.id}
-                    initial={{ opacity: 0, scale: 0.93 }}
+                    initial={{ opacity: 0, scale: 0.96 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.35, delay: idx * 0.04 }}
                     onClick={() => setLightbox(idx)}
-                    className="group relative rounded-xl overflow-hidden cursor-pointer
-                               border border-white/5 hover:border-neon-green/40
-                               transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover"
+                    className="group relative overflow-hidden cursor-pointer rounded-[28px]
+                               border border-white/10 bg-dark-200/75 backdrop-blur-xl
+                               transition-all duration-300 hover:-translate-y-1 hover:border-neon-green/40 hover:shadow-[0_24px_80px_rgba(0,255,0,0.05)]"
                   >
                     {/* Placeholder image area */}
                     <div className={`aspect-video bg-gradient-to-br ${item.gradient} relative flex items-center justify-center`}>
@@ -207,9 +218,9 @@ export default function Portfolio() {
                     </div>
 
                     {/* Card footer */}
-                    <div className="p-4 bg-dark-300">
-                      <div className="flex items-start justify-between gap-2 mb-2">
-                        <h3 className="font-display font-bold text-sm text-white tracking-wide leading-tight">
+                    <div className="p-5 sm:p-6 bg-dark-300/90">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
+                        <h3 className="font-display font-bold text-sm text-white tracking-wide leading-tight max-w-[70%]">
                           {item.title}
                         </h3>
                         <span className={`flex-shrink-0 text-xs font-mono px-2 py-0.5 rounded border ${CATEGORY_COLORS[item.category]}`}>
@@ -325,13 +336,13 @@ export default function Portfolio() {
               className="glass-card p-8 sm:p-12 text-center"
             >
               <p className="font-mono text-neon-green text-xs tracking-widest uppercase mb-3">
-                // Want Results Like These?
+                // Like What You See?
               </p>
               <h3 className="font-display font-black text-3xl text-white mb-4">
-                Let's Build Your Brand
+                Like What You See?
               </h3>
               <p className="font-body text-white/50 max-w-lg mx-auto mb-8">
-                Every project in this portfolio started with a simple message. Yours could be next.
+                Every project in this portfolio started with a creator who wanted to level up. Yours could be next.
               </p>
               <GlowButton as="link" to="/contact" size="lg" iconRight={<ArrowRight size={16} />}>
                 Start Your Project

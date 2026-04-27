@@ -4,10 +4,10 @@ import ParticleBackground from '@components/ui/ParticleBackground'
 import GlowButton from '@components/ui/GlowButton'
 
 const STATS = [
-  { value: '500+', label: 'Projects'   },
-  { value: '200+', label: 'Clients'    },
-  { value: '4.9★', label: 'Rating'     },
-  { value: '24h',  label: 'Turnaround' },
+  { value: '500+', label: 'Streamers Served' },
+  { value: '10M+', label: 'Views Generated' },
+  { value: '98%', label: 'Client Satisfaction' },
+  { value: '5★', label: 'Rated Agency' },
 ]
 
 export default function HeroSection() {
@@ -107,9 +107,10 @@ export default function HeroSection() {
           >
             <h1
               className="font-display font-black leading-[0.91] tracking-tight mb-0"
-              style={{ fontSize: 'clamp(3.4rem,8.5vw,7.2rem)' }}
+              style={{ fontSize: 'clamp(3.4rem,8.5vw,5.2rem)' }}
             >
-              <span className="block text-white">LEVEL UP</span>
+              <span className="block text-white">Your Stream.</span>
+              <span className="block text-white">Your Brand.</span>
               <span
                 className="block"
                 style={{
@@ -118,7 +119,7 @@ export default function HeroSection() {
                   animation: 'textGlow 2.2s ease-in-out infinite alternate',
                 }}
               >
-                YOUR BRAND
+                Built to Win.
               </span>
             </h1>
           </motion.div>
@@ -140,11 +141,7 @@ export default function HeroSection() {
             className="font-body text-white/55 leading-relaxed max-w-2xl mx-auto mb-12"
             style={{ fontSize: 'clamp(1rem,1.6vw,1.2rem)' }}
           >
-            Professional design & video services built exclusively for{' '}
-            <span className="text-white font-semibold">Gamers</span>,{' '}
-            <span className="text-white font-semibold">Streamers</span> &{' '}
-            <span className="text-white font-semibold">YouTubers</span>.
-            We craft visuals that make your audience stop scrolling.
+            We help streamers and gaming creators grow with pro-level design, YouTube management, and stream branding — all in one place.
           </motion.p>
 
           {/* CTA buttons */}
@@ -155,10 +152,10 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
           >
             <GlowButton as="link" to="/contact" size="lg" iconRight={<ArrowRight size={18} />}>
-              Start Your Project
+              Get Started
             </GlowButton>
             <GlowButton as="link" to="/portfolio" variant="outline" size="lg" icon={<Play size={15} />}>
-              View Our Work
+              See Our Work
             </GlowButton>
           </motion.div>
 
@@ -185,7 +182,6 @@ export default function HeroSection() {
                   cursor: 'default',
                 }}
               >
-                {/* Top scan line on hover */}
                 <div className="absolute top-0 left-0 right-0 h-px scale-x-0 group-hover:scale-x-100 transition-transform duration-350 origin-center"
                   style={{ background: 'linear-gradient(90deg,transparent,rgba(44,255,5,0.6),transparent)' }} />
                 <div

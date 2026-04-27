@@ -17,10 +17,10 @@ const STATS = [
 ]
 
 const VALUES = [
-  { icon: Target,   title: 'Gaming-First Mindset',   desc: 'We do not just design for gamers — we are gamers ourselves. Every pixel carries authentic gaming culture, not generic trends.' },
-  { icon: Shield,   title: 'Quality Without Excuses', desc: 'We refuse to deliver work that is "good enough". Every project goes through a rigorous quality check before it reaches you.' },
-  { icon: TrendingUp, title: 'Results-Driven Design', desc: 'Good design is not just beautiful — it converts. We measure success by your follower growth, click-through rates, and community engagement.' },
-  { icon: Users,    title: 'Creators First',          desc: 'Your timeline, budget, and vision come first. We adapt to you, not the other way around. No rigid processes, just real collaboration.' },
+  { icon: Target,   title: "Great stream branding shouldn't cost a fortune", desc: '' },
+  { icon: Shield,   title: 'Every creator deserves a strategy, not just pretty graphics', desc: '' },
+  { icon: TrendingUp, title: 'Growth happens when design and content work together', desc: '' },
+  { icon: Users,    title: 'Gaming culture is unique — and your brand should reflect that', desc: '' },
 ]
 
 const TEAM = [
@@ -74,13 +74,19 @@ export default function About() {
                   // Our Story
                 </motion.span>
                 <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-white leading-tight mb-6">
-                  Built By <span className="text-neon-green">Gamers</span>, For Creators
+                  We&apos;re The Stream Design — A Creative Agency Built for Gamers.
                 </motion.h1>
-                <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body text-white/60 text-lg leading-relaxed mb-8">
-                  thestreamingdesign was born out of frustration. Every design agency we found was built for corporate clients — not for streamers grinding to build their community, or YouTubers hustling to grow their channel.
+                <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-body text-white/60 text-md leading-relaxed mb-8">
+                  We started as streamers. We know the grind. Now we help others win it.
                 </motion.p>
-                <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="font-body text-white/60 text-lg leading-relaxed mb-10">
-                  So we built our own. A studio that speaks fluent gaming, understands streaming culture, and delivers work that actually looks like it belongs in your niche.
+                <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="font-body text-white/60 text-lg leading-relaxed mb-6">
+                  We built The Stream Design because we lived the problem — spending hours searching for good overlays, logos, and YouTube help, only to find generic stuff that didn&apos;t fit gaming culture at all.
+                </motion.p>
+                <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.28 }} className="font-body text-white/60 text-lg leading-relaxed mb-6">
+                  So we built something better.
+                </motion.p>
+                <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="font-body text-white/60 text-lg leading-relaxed mb-10">
+                  Today, we&apos;re a full-service streaming design and growth agency helping solo streamers, gaming YouTubers, and esports teams build brands that actually stand out. From twitch branding kits to YouTube channel audit and optimization services — everything we do is made for the gaming world.
                 </motion.p>
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-col sm:flex-row gap-4">
                   <GlowButton as="link" to="/services" size="lg" iconRight={<ArrowRight size={16} />}>
@@ -157,41 +163,26 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── Mission & Vision ── */}
+        {/* ── Mission ── */}
         <section className="py-24">
-          <div className="section-container">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {[
-                {
-                  icon: Target,
-                  label: 'Our Mission',
-                  title: 'Empower Every Creator',
-                  body: 'To make professional-grade branding accessible to every gamer, streamer, and content creator — regardless of their current size, budget, or experience. We believe every creator deserves a brand that reflects their unique identity and commands respect.',
-                },
-                {
-                  icon: Eye,
-                  label: 'Our Vision',
-                  title: 'The Agency for Gaming Culture',
-                  body: 'To become the most trusted creative partner in the gaming and streaming industry — the name every streamer mentions when someone asks "who did your overlays?" We measure success by how much our clients grow.',
-                },
-              ].map(({ icon: Icon, label, title, body }, i) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.15, duration: 0.6 }}
-                  className="glass-card p-8 hover:border-neon-green/40 hover:shadow-card-hover transition-all duration-300"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-neon-green/10 flex items-center justify-center mb-6">
-                    <Icon size={22} className="text-neon-green" />
-                  </div>
-                  <p className="font-mono text-neon-green text-xs tracking-widest uppercase mb-2">// {label}</p>
-                  <h3 className="font-display font-black text-2xl text-white mb-4">{title}</h3>
-                  <p className="font-body text-white/50 leading-relaxed">{body}</p>
-                </motion.div>
-              ))}
+          <div className="section-container max-w-3xl mx-auto">
+            <div className="text-center mb-14">
+              <span className="font-mono text-neon-green text-xs tracking-[0.3em] uppercase">// Our Mission</span>
+              <h2 className="font-display font-black text-4xl text-white mt-3">
+                Our Mission is Simple. To give every streamer — big or small — access to professional-level design, strategy, and support that helps them grow faster and look better doing it.
+              </h2>
             </div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="glass-card p-10 hover:border-neon-green/40 hover:shadow-card-hover transition-all duration-300"
+            >
+              <p className="font-body text-white/60 leading-relaxed">
+                Every creator deserves a professional-level brand that works as hard as they do. We blend design, strategy, and hands-on support so streamers can focus on content while we help their channel, community, and visual identity grow.
+              </p>
+            </motion.div>
           </div>
         </section>
 
@@ -200,11 +191,11 @@ export default function About() {
           <div className="absolute h-px w-full bg-gradient-to-r from-transparent via-neon-green/20 to-transparent" />
           <div className="section-container">
             <div className="text-center mb-14">
-              <span className="font-mono text-neon-green text-xs tracking-[0.3em] uppercase">// What Drives Us</span>
-              <h2 className="font-display font-black text-4xl text-white mt-3">Our Core <span className="text-neon-green">Values</span></h2>
+              <span className="font-mono text-neon-green text-xs tracking-[0.3em] uppercase">// What We Believe</span>
+              <h2 className="font-display font-black text-4xl text-white mt-3">What We <span className="text-neon-green">Believe</span></h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {VALUES.map(({ icon: Icon, title, desc }, i) => (
+              {VALUES.map(({ icon: Icon, title }, i) => (
                 <motion.div
                   key={title}
                   initial={{ opacity: 0, y: 30 }}
@@ -217,8 +208,7 @@ export default function About() {
                     <Icon size={20} className="text-neon-green" />
                   </div>
                   <div>
-                    <h4 className="font-display font-bold text-white text-sm uppercase tracking-wide mb-2">{title}</h4>
-                    <p className="font-body text-white/50 text-sm leading-relaxed">{desc}</p>
+                    <h4 className="font-display font-bold text-white text-sm uppercase tracking-wide">{title}</h4>
                   </div>
                 </motion.div>
               ))}
@@ -269,9 +259,9 @@ export default function About() {
         <section className="py-20 bg-dark-200/30">
           <div className="section-container">
             <div className="text-center mb-14">
-              <span className="font-mono text-neon-green text-xs tracking-[0.3em] uppercase">// The Crew</span>
-              <h2 className="font-display font-black text-4xl text-white mt-3">Meet The <span className="text-neon-green">Team</span></h2>
-              <p className="font-body text-white/40 max-w-xl mx-auto mt-4">A small but mighty team of designers, editors, and strategists obsessed with gaming culture.</p>
+              <span className="font-mono text-neon-green text-xs tracking-[0.3em] uppercase">// Our Team</span>
+              <h2 className="font-display font-black text-4xl text-white mt-3">Creators, Designers &amp; Strategists — All Under One Roof.</h2>
+              <p className="font-body text-white/40 max-w-xl mx-auto mt-4">We&apos;re a team of passionate gamers, experienced designers, and YouTube strategists who understand your world because we live in it too.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {TEAM.map(({ initials, name, role, color, bio }, i) => (
@@ -295,7 +285,12 @@ export default function About() {
           </div>
         </section>
 
-        <CTASection />
+        <CTASection
+          label="// Work With Us"
+          heading="Let's Build Something Great Together."
+          primaryText="Work With Us"
+          primaryLink="/contact"
+        />
       </motion.div>
     </>
   )

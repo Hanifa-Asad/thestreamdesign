@@ -1,14 +1,26 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import SectionHeader from '@components/ui/SectionHeader'
-import ServiceCard from '@components/ui/ServiceCard'
 import GlowButton from '@components/ui/GlowButton'
-import { SERVICES, SERVICE_CATEGORIES } from '@utils/servicesData'
 
-// Show only 4 from each category on home page
-const GAMER_PREVIEW  = SERVICES.filter(s => s.category === SERVICE_CATEGORIES.GAMERS_STREAMERS).slice(0, 4)
-const YT_PREVIEW     = SERVICES.filter(s => s.category === SERVICE_CATEGORIES.YOUTUBERS).slice(0, 4)
+const PILLARS = [
+  {
+    title: 'Stream & Twitch Design',
+    description: 'Overlays, alerts, panels & more built to make every broadcast look premium and polished.',
+  },
+  {
+    title: 'Gaming Logo & Esports Design',
+    description: 'Logos that mean business — brand marks crafted for teams, streamers, and competitive creators.',
+  },
+  {
+    title: 'YouTube Growth & Management',
+    description: 'Strategy, SEO, editing, and thumbnails that help your channel attract views and subscribers.',
+  },
+  {
+    title: 'Twitch Channel Setup & Optimization',
+    description: 'Ready-to-go live channel assets, panels, and optimization that keep your stream looking sharp.',
+  },
+]
 
 export default function ServicesPreviewSection() {
   return (
@@ -33,50 +45,31 @@ export default function ServicesPreviewSection() {
 
         <SectionHeader
           label="What We Do"
-          title="Services Built For"
-          titleHighlight="Creators"
-          subtitle="From stream overlays to full YouTube channel management — every service is designed specifically for gaming and content creator audiences."
+          title="Everything You Need to Grow —"
+          titleHighlight="One Agency."
+          subtitle="We handle the design, strategy, and content so you can focus on streaming. From custom stream overlays and gaming logo design to YouTube channel management and Twitch growth service — we've got you covered."
         />
 
-        {/* ── Gamers & Streamers ── */}
-        <div className="mb-16">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-1 h-8 bg-neon-green rounded-full shadow-neon" />
-              <h3 className="font-display font-bold text-xl text-white tracking-wide">
-                Gamers & Streamers
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+          {PILLARS.map((pillar, i) => (
+            <motion.div
+              key={pillar.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="group rounded-3xl p-8 border border-white/10 bg-white/5 shadow-[0_0_40px_rgba(0,0,0,0.25)]"
+            >
+              <h3 className="font-display font-black text-xl text-white mb-4">
+                {pillar.title}
               </h3>
-            </div>
-            <div className="flex-1 h-px bg-gradient-to-r from-neon-green/30 to-transparent" />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {GAMER_PREVIEW.map((service, i) => (
-              <ServiceCard key={service.id} service={service} index={i} />
-            ))}
-          </div>
+              <p className="font-body text-white/60 leading-relaxed">
+                {pillar.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
-        {/* ── YouTubers ── */}
-        <div className="mb-14">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-1 h-8 bg-neon-green rounded-full shadow-neon" />
-              <h3 className="font-display font-bold text-xl text-white tracking-wide">
-                YouTubers
-              </h3>
-            </div>
-            <div className="flex-1 h-px bg-gradient-to-r from-neon-green/30 to-transparent" />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {YT_PREVIEW.map((service, i) => (
-              <ServiceCard key={service.id} service={service} index={i} />
-            ))}
-          </div>
-        </div>
-
-        {/* View All CTA */}
         <div className="text-center">
           <GlowButton as="link" to="/services" variant="outline" iconRight={<ArrowRight size={16} />}>
             View All Services

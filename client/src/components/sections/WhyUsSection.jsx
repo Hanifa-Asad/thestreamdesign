@@ -1,14 +1,12 @@
 import { motion } from 'framer-motion'
-import { Target, Zap, Trophy, Shield, Headphones, Clock } from 'lucide-react'
+import { Target, Zap, Shield, Trophy } from 'lucide-react'
 import SectionHeader from '@components/ui/SectionHeader'
 
 const REASONS = [
-  { icon: Target,      title: 'Gaming-First Only',      desc: 'We exclusively serve gamers, streamers, and creators. Every design speaks the gaming language natively.' },
-  { icon: Zap,         title: 'Fast Turnaround',         desc: 'Most projects delivered in 24–72 hours. Your stream needs to go live — not wait weeks for assets.' },
-  { icon: Trophy,      title: 'Premium Quality',         desc: 'Production-grade assets used by professional streamers and YouTubers with millions of followers.' },
-  { icon: Shield,      title: 'Unlimited Revisions',     desc: 'Not happy? We revise until you are. Satisfaction is non-negotiable on all Standard and Premium plans.' },
-  { icon: Headphones,  title: '24/7 Support',            desc: 'Direct communication via Discord and WhatsApp. Always available for queries and updates.' },
-  { icon: Clock,       title: 'You Own Everything',      desc: 'Full commercial usage rights included. All source files yours. No recurring licensing fees ever.' },
+  { icon: Target, title: 'We Know Gaming', desc: 'Built by creators, for creators — every asset is made with gaming culture in mind.' },
+  { icon: Zap, title: 'Fast Delivery', desc: 'No long waits, no excuses. We move fast so your stream stays ahead of the competition.' },
+  { icon: Shield, title: 'Full Service', desc: 'Design + strategy + management, all under one roof for a complete brand experience.' },
+  { icon: Trophy, title: 'Results Driven', desc: 'We don\'t just make it look good, we make it grow with measurable creator-focused outcomes.' },
 ]
 
 export default function WhyUsSection() {
@@ -42,13 +40,13 @@ export default function WhyUsSection() {
 
       <div className="section-container relative z-10">
         <SectionHeader
-          label="Why Choose Us"
-          title="The Unfair"
-          titleHighlight="Advantage"
-          subtitle="We're not a generic design agency. We live and breathe gaming culture — and it shows in every pixel."
+          label="Why Us?"
+          title="Why Streamers Choose"
+          titleHighlight="The Stream Design"
+          subtitle="We Know Gaming — Built by creators, for creators. Fast Delivery — No long waits, no excuses. Full Service — Design + strategy + management, all under one roof. Results Driven — We don't just make it look good, we make it grow."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {REASONS.map(({ icon: Icon, title, desc }, i) => (
             <motion.div
               key={title}
@@ -75,12 +73,10 @@ export default function WhyUsSection() {
                 e.currentTarget.style.transform   = 'translateY(0)'
               }}
             >
-              {/* Bottom accent line */}
               <div className="absolute bottom-0 left-4 right-4 h-px scale-x-0 group-hover:scale-x-100
                               transition-transform duration-500 origin-left"
                 style={{ background: 'linear-gradient(90deg,rgba(44,255,5,0.6),transparent)' }} />
 
-              {/* Icon */}
               <div className="w-11 h-11 rounded-xl mb-5 flex items-center justify-center relative"
                 style={{ background: 'rgba(44,255,5,0.08)', border: '1px solid rgba(44,255,5,0.15)' }}>
                 <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -92,7 +88,7 @@ export default function WhyUsSection() {
                 />
               </div>
 
-              <h3 className="font-display font-bold text-white text-xs tracking-[0.15em] uppercase mb-2.5">
+              <h3 className="font-display font-bold text-white text-sm tracking-[0.15em] uppercase mb-2.5">
                 {title}
               </h3>
               <p className="font-body text-white/45 text-sm leading-relaxed">{desc}</p>

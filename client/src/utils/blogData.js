@@ -294,3 +294,5 @@ export const BLOG_POSTS = [
 export const getBlogPost = (slug) => BLOG_POSTS.find(p => p.slug === slug)
 export const getRelatedPosts = (slug, limit = 3) =>
   BLOG_POSTS.filter(p => p.slug !== slug).slice(0, limit)
+
+export const getStaticBlogPosts = () => BLOG_POSTS

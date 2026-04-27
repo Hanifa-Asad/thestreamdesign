@@ -277,11 +277,16 @@ export default function Navbar() {
             {NAV_LINKS.map(({ label, path, hasDropdown }) => {
               if (hasDropdown) {
                 return (
-                  <li key={path} className="relative" ref={dropdownRef}>
+                  <li key={path}
+                      className="relative"
+                      ref={dropdownRef}
+                      onMouseEnter={() => setServicesOpen(true)}
+                      onMouseLeave={() => setServicesOpen(false)}>
                     <button
                       onClick={() => setServicesOpen(v => !v)}
                       className="flex items-center gap-1 px-3.5 py-2 font-display text-xs font-bold tracking-[0.15em] uppercase transition-colors duration-200"
                       style={{ color: servicesOpen || pathname.startsWith('/services') ? '#39FF14' : 'rgba(255,255,255,0.55)' }}
+                      aria-expanded={servicesOpen}
                     >
                       {label}
                       <motion.div animate={{ rotate: servicesOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>

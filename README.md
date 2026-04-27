@@ -45,6 +45,23 @@ cp .env.example .env
 npm run dev
 ```
 
+### 5. Contentful CMS Setup
+
+1. Sign up at https://www.contentful.com and create a new space.
+2. Add a `blogPost` content type with fields: `title`, `slug`, `excerpt`, `category`, `tag`, `tagColor`, `date`, `readTime`, `gradient`, `coverBg`, and `body`.
+3. Publish at least one blog entry.
+4. Copy the Space ID and Content Delivery API token.
+5. In `client/.env`, set:
+
+```bash
+VITE_CONTENTFUL_SPACE_ID=your_space_id
+VITE_CONTENTFUL_ACCESS_TOKEN=your_content_delivery_api_token
+VITE_CONTENTFUL_ENVIRONMENT=master
+VITE_CONTENTFUL_BLOG_CONTENT_TYPE=blogPost
+```
+
+6. Restart the client dev server.
+
 ---
 
 ## Project Structure

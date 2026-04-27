@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Mail, MessageCircle, X } from 'lucide-react'
-import { FaFacebookF, FaInstagram, FaTwitter, FaTiktok, FaDiscord, FaWhatsapp, FaYoutube } from 'react-icons/fa'
-import { SiThreads } from 'react-icons/si'
+import { Mail, Phone, X } from 'lucide-react'
+import { FaFacebookF, FaInstagram, FaTwitter, FaTiktok, FaYoutube, FaLinkedinIn, FaTwitch, FaPatreon, FaBehance, FaDribbble, FaPinterest } from 'react-icons/fa'
+import { SiThreads, SiTrustpilot, SiKick } from 'react-icons/si'
 import { SOCIAL_LINKS, CONTACT_INFO } from '@utils/emailConfig'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -29,13 +29,19 @@ const FOOTER_LINKS = {
 
 const SOCIAL_ICONS = [
   { icon: FaInstagram, href: SOCIAL_LINKS.instagram, label: 'Instagram' },
-  { icon: FaFacebookF, href: SOCIAL_LINKS.facebook,  label: 'Facebook'  },
-  { icon: FaTwitter,   href: SOCIAL_LINKS.twitter,   label: 'Twitter'   },
-  { icon: FaTiktok,    href: SOCIAL_LINKS.tiktok,    label: 'TikTok'    },
   { icon: SiThreads,   href: SOCIAL_LINKS.threads,   label: 'Threads'   },
-  { icon: FaDiscord,   href: SOCIAL_LINKS.discord,   label: 'Discord'   },
+  { icon: FaFacebookF, href: SOCIAL_LINKS.facebook,  label: 'Facebook'  },
+  { icon: FaTiktok,    href: SOCIAL_LINKS.tiktok,    label: 'TikTok'    },
+  { icon: FaTwitter,   href: SOCIAL_LINKS.twitter,   label: 'Twitter / X' },
+  { icon: FaLinkedinIn, href: SOCIAL_LINKS.linkedin,  label: 'LinkedIn' },
+  { icon: SiTrustpilot, href: SOCIAL_LINKS.trustpilot, label: 'Trustpilot' },
   { icon: FaYoutube,   href: SOCIAL_LINKS.youtube,   label: 'YouTube'   },
-  { icon: FaWhatsapp,  href: SOCIAL_LINKS.whatsapp,  label: 'WhatsApp'  },
+  { icon: SiKick,      href: SOCIAL_LINKS.kick,      label: 'Kick'      },
+  { icon: FaTwitch,    href: SOCIAL_LINKS.twitch,    label: 'Twitch'    },
+  { icon: FaPatreon,   href: SOCIAL_LINKS.patreon,   label: 'Patreon'   },
+  { icon: FaBehance,   href: SOCIAL_LINKS.behance,   label: 'Behance'   },
+  { icon: FaDribbble,  href: SOCIAL_LINKS.dribbble,  label: 'Dribbble'  },
+  { icon: FaPinterest, href: SOCIAL_LINKS.pinterest, label: 'Pinterest' },
 ]
 
 // ── Inline Modal for Privacy Policy / Terms ──────────────────────────────────
@@ -216,10 +222,10 @@ export default function Footer() {
                 <Mail size={13} className="text-neon-green/60" />
                 {CONTACT_INFO.email}
               </a>
-              <a href={SOCIAL_LINKS.whatsapp}
+              <a href={`tel:${CONTACT_INFO.phone}`}
                 className="flex items-center gap-2 text-white/40 hover:text-neon-green text-sm transition-colors duration-200">
-                <MessageCircle size={13} className="text-neon-green/60" />
-                WhatsApp Us
+                <Phone size={13} className="text-neon-green/60" />
+                {CONTACT_INFO.phone}
               </a>
             </div>
           </div>
@@ -266,32 +272,29 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar with Privacy + Terms */}
+        {/* Bottom bar with inline copyright and legal links */}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
-          <div className="section-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="font-mono text-white/20 text-xs">
-              © {new Date().getFullYear()} thestreamingdesign. All rights reserved.
-            </p>
-
-            {/* Legal links — open inline modals */}
-            <div className="flex items-center gap-4">
+          <div className="section-container py-5 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <p className="font-mono text-white/50 text-xs text-center">
+              © The Stream Design — All content is original and SEO-optimized for gaming & streaming audiences.
+              {' '}
+              <span className="text-white/40">|</span>
+              {' '}
               <button
                 onClick={() => setLegalModal('privacy')}
                 className="font-mono text-white/25 text-xs hover:text-neon-green transition-colors duration-200 underline underline-offset-2 decoration-white/15 hover:decoration-neon-green"
               >
                 Privacy Policy
               </button>
-              <span className="text-white/15 text-xs">·</span>
+              {' '}
+              <span className="text-white/40">|</span>
+              {' '}
               <button
                 onClick={() => setLegalModal('terms')}
                 className="font-mono text-white/25 text-xs hover:text-neon-green transition-colors duration-200 underline underline-offset-2 decoration-white/15 hover:decoration-neon-green"
               >
                 Terms & Conditions
               </button>
-            </div>
-
-            <p className="font-mono text-xs" style={{ color: 'rgba(57,255,20,0.25)' }}>
-              Crafted for Gamers. Built to Convert.
             </p>
           </div>
         </div>

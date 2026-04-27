@@ -4,8 +4,8 @@ import { Zap } from 'lucide-react'
 
 const ITEMS = [
   'Stream Overlays', 'Logo Design', 'Twitch Emotes', 'Thumbnail Design',
-  'Video Editing', 'Stream Banners', 'Reels Editing', 'Channel Management',
-  'YouTube Management', 'Reels Thumbnails', 'Gaming Logos', 'Stream Alerts',
+  'Video Editing', 'Stream Banners', 'Reels Editing', 'Ultimate Streamer Pack',
+  'YouTube Management', 'Gaming Logos', 'Stream Alerts',
 ]
 
 export default function MarqueeBar() {
