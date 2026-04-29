@@ -15,6 +15,9 @@ export default function CTASection({
   secondaryHref = 'mailto:info@thestreamingdesign.com',
 }) {
   const { ref, inView } = useScrollAnimation(0.2)
+  const supportLines = []
+  if (secondaryHref?.startsWith('mailto:')) supportLines.push(secondaryHref.replace('mailto:', ''))
+  if (primaryLink?.startsWith('tel:')) supportLines.push(primaryLink.replace('tel:', ''))
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -62,7 +65,7 @@ export default function CTASection({
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <GlowButton as="link" to={primaryLink} size="lg" iconRight={<ArrowRight size={18} />}>
               {primaryText}
             </GlowButton>
@@ -78,6 +81,13 @@ export default function CTASection({
               </GlowButton>
             )}
           </div>
+          {supportLines.length > 0 && (
+            <div className="mb-10 text-xs uppercase tracking-[0.22em] text-white/30">
+              {supportLines.map((line) => (
+                <p key={line} className="leading-relaxed">{line}</p>
+              ))}
+            </div>
+          )}
 
           {/* Trust line */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6

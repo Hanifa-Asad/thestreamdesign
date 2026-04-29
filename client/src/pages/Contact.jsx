@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+﻿import { useState, useRef, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import emailjs from '@emailjs/browser'              // ← modern package (not emailjs-com)
@@ -8,9 +8,10 @@ import {
 } from 'lucide-react'
 import {
   FaFacebookF, FaInstagram, FaTwitter, FaTiktok,
-  FaYoutube,
+  FaYoutube, FaLinkedinIn, FaTwitch, FaPatreon,
+  FaBehance, FaDribbble, FaPinterest,
 } from 'react-icons/fa'
-import { SiThreads } from 'react-icons/si'
+import { SiThreads, SiTrustpilot, SiKick } from 'react-icons/si'
 import GlowButton from '@components/ui/GlowButton'
 import FAQSection from '@components/sections/FAQSection'
 import {
@@ -39,11 +40,19 @@ const PLATFORM_OPTIONS = ['Twitch', 'YouTube', 'Both', 'Other']
 
 const SOCIAL_ICONS = [
   { icon: FaInstagram, href: SOCIAL_LINKS.instagram, label: 'Instagram' },
-  { icon: FaFacebookF, href: SOCIAL_LINKS.facebook,  label: 'Facebook'  },
-  { icon: FaTwitter,   href: SOCIAL_LINKS.twitter,   label: 'Twitter'   },
-  { icon: FaTiktok,    href: SOCIAL_LINKS.tiktok,    label: 'TikTok'    },
   { icon: SiThreads,   href: SOCIAL_LINKS.threads,   label: 'Threads'   },
+  { icon: FaFacebookF, href: SOCIAL_LINKS.facebook,  label: 'Facebook'  },
+  { icon: FaTiktok,    href: SOCIAL_LINKS.tiktok,    label: 'TikTok'    },
+  { icon: FaTwitter,   href: SOCIAL_LINKS.twitter,   label: 'Twitter / X' },
+  { icon: FaLinkedinIn, href: SOCIAL_LINKS.linkedin,  label: 'LinkedIn' },
+  { icon: SiTrustpilot, href: SOCIAL_LINKS.trustpilot, label: 'Trustpilot' },
   { icon: FaYoutube,   href: SOCIAL_LINKS.youtube,   label: 'YouTube'   },
+  { icon: SiKick,      href: SOCIAL_LINKS.kick,      label: 'Kick'      },
+  { icon: FaTwitch,    href: SOCIAL_LINKS.twitch,    label: 'Twitch'    },
+  { icon: FaPatreon,   href: SOCIAL_LINKS.patreon,   label: 'Patreon'   },
+  { icon: FaBehance,   href: SOCIAL_LINKS.behance,   label: 'Behance'   },
+  { icon: FaDribbble,  href: SOCIAL_LINKS.dribbble,  label: 'Dribbble'  },
+  { icon: FaPinterest, href: SOCIAL_LINKS.pinterest, label: 'Pinterest' },
 ]
 
 const CONTACT_CARDS = [
@@ -235,7 +244,7 @@ export default function Contact() {
             <div className="glass-card p-8">
               <p className="font-mono text-neon-green text-xs tracking-[0.3em] uppercase mb-3">// Contact Info</p>
               <p className="font-body text-white/50 text-base leading-relaxed">
-                📧 Email: <a href="mailto:hello@thestreamingdesign.com" className="text-neon-green hover:underline">hello@thestreamdesign.com</a>
+                📧 Email: <a href="mailto:info@thestreamingdesign.com" className="text-neon-green hover:underline">info@thestreamingdesign.com</a>
                 &nbsp; 💬 Discord: <a href="https://discord.gg/thestreamingdesign" target="_blank" rel="noreferrer" className="text-neon-green hover:underline">Join Our Server</a>
                 &nbsp; 📱 Social: <span className="text-neon-green">@thestreamingdesign</span>
               </p>
@@ -405,6 +414,7 @@ export default function Contact() {
                           >
                             {status === 'loading' ? 'Sending...' : 'Send Message'}
                           </GlowButton>
+                          <div className="flex flex-col gap-2">
                           <GlowButton
                             as="a" href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, '')}`}
                             variant="outline" size="lg"
@@ -412,7 +422,11 @@ export default function Contact() {
                           >
                             Call Us
                           </GlowButton>
+                          <span className="text-[11px] text-white/30 tracking-[0.22em] uppercase">
+                            {CONTACT_INFO.phone}
+                          </span>
                         </div>
+                      </div>
 
                         <p className="font-mono text-white/20 text-xs text-center pt-1">
                           Your data is never shared with third parties.
@@ -456,9 +470,14 @@ export default function Contact() {
                   <p className="font-body text-white/50 text-sm leading-relaxed mb-5">
                     Reach out by phone or email for the quickest response.
                   </p>
-                  <a href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, '')}`} className="btn-neon w-full text-center block text-xs py-3">
-                    Call Now
-                  </a>
+                  <div className="flex flex-col gap-2">
+                    <a href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, '')}`} className="btn-neon w-full text-center block text-xs py-3">
+                      Call Now
+                    </a>
+                    <span className="text-[11px] text-white/30 tracking-[0.22em] uppercase">
+                      {CONTACT_INFO.phone}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Process steps */}

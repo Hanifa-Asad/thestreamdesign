@@ -16,7 +16,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const EMAILJS_CONFIG = {
- SERVICE_ID:  'service_9zbig2h',    // ← replace with e.g. 'service_abc123'
+ SERVICE_ID:  'service_j0c2poi',    // ← replace with e.g. 'service_abc123'
   TEMPLATE_ID: 'template_3scspzb',   // ← replace with e.g. 'template_xyz789'
   PUBLIC_KEY:  '9Auv9YtYqEKM2VH-Q',  // ✅ your key
 }
@@ -56,7 +56,7 @@ export const SOCIAL_LINKS = {
 }
 
 export const CONTACT_INFO = {
-  email: 'hello@thestreamingdesign.com',
+  email: 'info@thestreamingdesign.com',
   phone: '+1 346 857 1259',
   location: 'Remote Worldwide',
 }

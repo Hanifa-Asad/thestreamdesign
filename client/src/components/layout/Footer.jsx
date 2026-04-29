@@ -73,11 +73,11 @@ function LegalModal({ type, onClose }) {
         },
         {
           heading: 'Your Rights',
-          body: 'You may request deletion of your data at any time by contacting us at hello@thestreamingdesign.com. We will comply within 30 days.',
+          body: 'You may request deletion of your data at any time by contacting us at info@thestreamingdesign.com. We will comply within 30 days.',
         },
         {
           heading: 'Contact',
-          body: 'For privacy-related concerns, please email hello@thestreamingdesign.com.',
+          body: 'For privacy-related concerns, please email info@thestreamingdesign.com.',
         },
       ],
     },
@@ -115,7 +115,7 @@ function LegalModal({ type, onClose }) {
         },
         {
           heading: 'Contact',
-          body: 'For questions about these terms, contact hello@thestreamingdesign.com.',
+          body: 'For questions about these terms, contact info@thestreamingdesign.com.',
         },
       ],
     },

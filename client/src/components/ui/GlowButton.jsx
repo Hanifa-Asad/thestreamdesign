@@ -54,7 +54,12 @@ export default function GlowButton({
 
   if (variant === 'ghost') {
     const El = as === 'link' ? Link : as === 'a' ? 'a' : 'button'
-    const ep = El === Link ? { to } : El === 'a' ? { href, target: '_blank', rel: 'noopener noreferrer' } : { type, onClick }
+    const isExternal = href ? /^https?:\/\//.test(href) : false
+    const ep = El === Link
+      ? { to }
+      : El === 'a'
+        ? { href, target: isExternal ? '_blank' : undefined, rel: isExternal ? 'noopener noreferrer' : undefined }
+        : { type, onClick }
     return (
       <motion.div whileHover={ghostHover} whileTap={tap} className="inline-block">
         <El className={`${base} text-neon-green hover:text-white`} {...ep} {...props}>{inner}</El>
@@ -75,9 +80,15 @@ export default function GlowButton({
     )
   }
   if (as === 'a' && href) {
+    const isExternal = /^https?:\/\//.test(href)
+    const anchorProps = {
+      href,
+      target: isExternal ? '_blank' : undefined,
+      rel: isExternal ? 'noopener noreferrer' : undefined,
+    }
     return (
       <motion.div whileHover={hover} whileTap={tap} style={style} className="inline-block">
-        <a href={href} target="_blank" rel="noopener noreferrer" className={cls} {...props}>{inner}</a>
+        <a {...anchorProps} className={cls} {...props}>{inner}</a>
       </motion.div>
     )
   }
