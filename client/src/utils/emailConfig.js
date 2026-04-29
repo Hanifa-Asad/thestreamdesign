@@ -16,9 +16,9 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const EMAILJS_CONFIG = {
- SERVICE_ID:  'service_j0c2poi',    // ← replace with e.g. 'service_abc123'
-  TEMPLATE_ID: 'template_3scspzb',   // ← replace with e.g. 'template_xyz789'
-  PUBLIC_KEY:  '9Auv9YtYqEKM2VH-Q',  // ✅ your key
+ SERVICE_ID:  'service_nmrthzk',    // ← replace with e.g. 'service_abc123'
+  TEMPLATE_ID: 'template_6l459ag',   // ← replace with e.g. 'template_xyz789'
+  PUBLIC_KEY:  'SAK22cvROMrtgTXmo',  // ✅ your key
 }
 
 // Quick check helper — called on app start in Contact.jsx
