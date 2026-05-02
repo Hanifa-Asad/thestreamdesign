@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Clock, Tag } from 'lucide-react'
 import CTASection from '@components/sections/CTASection'
-import { getStaticBlogPosts } from '@utils/blogData'
+import { getStaticBlogPosts, normalizeBlogPost, slugify } from '@utils/blogData'
 import { isCmsEnabled, fetchCmsPosts } from '@utils/contentfulClient'
 
 const getCategories = (posts) => ['All', ...Array.from(new Set(posts.map(p => p.category)))]
@@ -18,13 +18,14 @@ export default function Blog() {
   const ALL_CATEGORIES = getCategories(posts)
 
   const mergePosts = (cmsPosts) => {
-    const result = [...getStaticBlogPosts(), ...cmsPosts]
+    const result = [...getStaticBlogPosts(), ...(cmsPosts || []).map(normalizeBlogPost)]
     const uniquePosts = new Map()
 
     result.forEach((post) => {
-      if (!post?.slug) return
-      if (!uniquePosts.has(post.slug)) {
-        uniquePosts.set(post.slug, post)
+      const safeSlug = slugify(post.slug || post.title || post.id)
+      if (!safeSlug) return
+      if (!uniquePosts.has(safeSlug)) {
+        uniquePosts.set(safeSlug, { ...post, slug: safeSlug, id: post.id || safeSlug })
       }
     })
 
@@ -171,6 +172,14 @@ export default function Blog() {
                 >
                   {/* Cover image area */}
                   <div className={`aspect-video bg-gradient-to-br ${post.gradient} relative overflow-hidden`}>
+                    {post.imageUrl && (
+                      <img
+                        src={post.imageUrl}
+                        alt={post.title}
+                        className="absolute inset-0 w-full h-full object-cover opacity-90"
+                        loading="lazy"
+                      />
+                    )}
                     <div className="absolute inset-0" style={{ background: post.coverBg }} />
                     {/* Grid pattern */}
                     <div className="absolute inset-0" style={{
@@ -208,7 +217,7 @@ export default function Blog() {
                     </p>
 
                     <Link
-                      to={`/blog/${post.slug}`}
+                      to={`/blog/${slugify(post.slug || post.title || post.id)}`}
                       className="inline-flex items-center gap-1.5 font-display text-xs font-bold tracking-widest uppercase transition-colors duration-200 mt-auto"
                       style={{ color: 'rgba(57,255,20,0.65)' }}
                       onMouseEnter={e => { e.currentTarget.style.color = '#39FF14' }}

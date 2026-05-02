@@ -1,43 +1,80 @@
 import { useEffect, useState } from 'react'
-import { useParams, Link, Navigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Clock, Calendar, ArrowRight, ChevronRight } from 'lucide-react'
-import { getStaticBlogPosts, getRelatedPosts } from '@utils/blogData'
+import { getBlogPost, getRelatedPosts, slugify } from '@utils/blogData'
 import { isCmsEnabled, fetchCmsPostBySlug } from '@utils/contentfulClient'
 import CTASection from '@components/sections/CTASection'
 
 export default function BlogPost() {
   const { slug } = useParams()
-  const [post, setPost] = useState(() => getStaticBlogPosts().find(p => p.slug === slug))
-  const [loading, setLoading] = useState(false)
+  const routeSlug = slug?.toString().trim() || ''
+  const normalizedSlug = slugify(routeSlug)
+  const staticPost = getBlogPost(normalizedSlug)
+  const [post, setPost] = useState(staticPost)
+  const [loading, setLoading] = useState(!staticPost && isCmsEnabled())
   const [error, setError] = useState('')
 
   useEffect(() => {
-    if (!slug) return
+    if (!routeSlug) {
+      setLoading(false)
+      return
+    }
+
     if (!isCmsEnabled()) return
 
     setLoading(true)
-    fetchCmsPostBySlug(slug)
+    fetchCmsPostBySlug(normalizedSlug)
       .then((cmsPost) => {
         if (cmsPost) {
           setPost(cmsPost)
-        } else {
+          setError('')
+        } else if (!staticPost) {
+          setPost(null)
           setError('This post is not available yet.')
         }
       })
       .catch((err) => {
         console.warn('[BlogPost] CMS fetch failed, using static post.', err)
-        setError('Unable to load fresh post content right now.')
+        if (!staticPost) {
+          setPost(null)
+          setError('Unable to load fresh post content right now.')
+        }
       })
       .finally(() => setLoading(false))
-  }, [slug])
+  }, [normalizedSlug, staticPost])
 
-  if (!post && !loading) {
-    return <Navigate to="/blog" replace />
+  if (loading) {
+    return (
+      <div className="section-container min-h-[60vh] flex flex-col items-center justify-center text-center py-24">
+        <p className="font-display text-3xl text-white mb-4">Loading post...</p>
+        <p className="max-w-2xl text-white/50">Fetching the article content. Please wait a moment.</p>
+      </div>
+    )
   }
 
-  const related = getRelatedPosts(slug, 3)
+  if (!post) {
+    return (
+      <div className="section-container min-h-[60vh] flex flex-col items-center justify-center text-center py-24">
+        <span className="font-mono text-xs uppercase tracking-[0.35em] mb-4" style={{ color: '#39FF14' }}>
+          Blog post not found
+        </span>
+        <h1 className="font-display text-4xl text-white mb-4">We couldn't find that blog.</h1>
+        <p className="max-w-2xl text-white/50 mb-8">
+          {error || 'This blog may have been removed, renamed, or not published yet.'}
+        </p>
+        <Link
+          to="/blog"
+          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/10"
+        >
+          Back to Blog
+        </Link>
+      </div>
+    )
+  }
+
+  const related = getRelatedPosts(normalizedSlug, 3)
 
   return (
     <>
@@ -124,6 +161,17 @@ export default function BlogPost() {
 
           {/* Divider */}
           <div className="h-px mb-8" style={{ background: 'linear-gradient(90deg,rgba(57,255,20,0.4),transparent)' }} />
+
+          {post.imageUrl && (
+            <div className="overflow-hidden rounded-[2rem] mb-8 border border-white/10 bg-slate-950/20">
+              <img
+                src={post.imageUrl}
+                alt={post.title}
+                className="w-full h-auto object-cover max-h-[520px]"
+                loading="lazy"
+              />
+            </div>
+          )}
 
           {/* Article content */}
           <motion.div

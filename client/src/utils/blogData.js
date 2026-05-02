@@ -2,6 +2,30 @@
 // Dummy data — swap for API calls when backend is ready.
 // Structure is designed to be backend-compatible (matches typical MongoDB doc shape).
 
+const slugify = (value) => {
+  if (!value) return ''
+  return String(value)
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
+const normalizeBlogPost = (post) => {
+  const title = post?.title || ''
+  const rawSlug = typeof post?.slug === 'string' ? slugify(post.slug) : ''
+  const slug = rawSlug || slugify(title) || post?.id || `post-${Date.now()}`
+  const id = post?.id || slug || `post-${slugify(title) || 'item'}`
+
+  return {
+    ...post,
+    id,
+    slug,
+  }
+}
+
 export const BLOG_POSTS = [
   {
     id: 'how-to-grow-twitch-channel-2024',
@@ -291,8 +315,17 @@ export const BLOG_POSTS = [
   },
 ]
 
-export const getBlogPost = (slug) => BLOG_POSTS.find(p => p.slug === slug)
-export const getRelatedPosts = (slug, limit = 3) =>
-  BLOG_POSTS.filter(p => p.slug !== slug).slice(0, limit)
+const NORMALIZED_BLOG_POSTS = BLOG_POSTS.map(normalizeBlogPost)
 
-export const getStaticBlogPosts = () => BLOG_POSTS
+export { slugify, normalizeBlogPost }
+export const getBlogPost = (slug) => {
+  const normalizedSlug = slugify(slug)
+  return NORMALIZED_BLOG_POSTS.find((post) => slugify(post.slug) === normalizedSlug)
+}
+
+export const getRelatedPosts = (slug, limit = 3) => {
+  const normalizedSlug = slugify(slug)
+  return NORMALIZED_BLOG_POSTS.filter((post) => slugify(post.slug) !== normalizedSlug).slice(0, limit)
+}
+
+export const getStaticBlogPosts = () => NORMALIZED_BLOG_POSTS
