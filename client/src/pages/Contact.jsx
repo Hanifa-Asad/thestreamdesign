@@ -142,10 +142,12 @@ export default function Contact() {
     setStatus('loading')
     setErrMsg('')
 
-    // Template params — must match {{variable}} names in your EmailJS template
+    // Template params — must match {{variable}} names in your EmailJS template.
+    // Use a verified sender address for the From header and send the visitor address as reply_to.
     const templateParams = {
       from_name:  form.name,
-      from_email: form.email,
+      from_email: 'info@thestreamingdesign.com',
+      reply_to:   form.email,
       platform:   form.platform,
       service:    form.service,
       message:    form.message,

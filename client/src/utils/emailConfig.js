@@ -11,7 +11,11 @@
 //   4. Account → API Keys → Public Key  (already set below ✅)
 //
 // Your EmailJS template MUST contain these exact variable names:
-//   {{from_name}}   {{from_email}}   {{service}}   {{message}}   {{to_name}}
+//   {{from_name}}   {{from_email}}   {{reply_to}}   {{service}}   {{message}}   {{to_name}}
+//
+// Important: EmailJS SMTP services typically require the email "From" address to be a verified sender.
+// Use a fixed sender like info@thestreamingdesign.com or noreply@yourdomain.com in the template,
+// and use {{reply_to}} for the visitor's email address.
 //
 // ─────────────────────────────────────────────────────────────────────────────
 

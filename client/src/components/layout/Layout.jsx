@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import CustomCursor from '@components/ui/CustomCursor'
+import PromoPopup from '@components/ui/PromoPopup'
 
 export default function Layout() {
   const { pathname } = useLocation()
@@ -18,6 +19,9 @@ export default function Layout() {
 
       {/* Custom gaming cursor */}
       <CustomCursor />
+
+      {/* Promotional popup shown once per 24 hours */}
+      <PromoPopup />
 
       <Navbar />
 
